@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563401203153.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "528A66BA",
+    "lastKnownWriteTime" : 1576267498,
+    "last_content_update" : 1576267498,
+    "path" : "~/Projects/scRATE/R/run_model_comparison.R",
+    "project_path" : "R/run_model_comparison.R",
+    "properties" : {
+        "cursorPosition" : "21,27",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

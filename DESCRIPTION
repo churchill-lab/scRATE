@@ -1,0 +1,39 @@
+Package: scRATE
+Type: Package
+Title: A scRNA-seq quantification toolkit based on Bayesian model selection
+Version: 0.1.0
+Author: Kwangbom "KB" Choi, Ph.D.
+Maintainer: Kwangbom "KB" Choi, Ph.D. <kb.choi@jax.org>
+Description: Estimate gene expression rate using the best model to which count data conforms.
+    Performs model selection based on posterior predictive checks.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Biarch: true
+Depends: 
+    R (>= 3.4.0),
+    rstanarm,
+    brms
+Imports:
+    methods,
+    Rcpp (>= 0.12.0),
+    rstan (>= 2.18.1),
+    rstantools (>= 2.0.0),
+    rstanarm,
+    brms,
+    loo,
+    hdf5r,
+    loomR
+LinkingTo: 
+    BH (>= 1.66.0),
+    Rcpp (>= 0.12.0),
+    RcppEigen (>= 0.3.3.3.0),
+    rstan (>= 2.18.1),
+    StanHeaders (>= 2.18.0)
+Suggests: 
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
+SystemRequirements: GNU make

@@ -1,0 +1,698 @@
+[
+    {
+        "definitions" : [
+        ],
+        "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/inst/include/stan_meta_header.hpp",
+        "file_last_write" : 1563313441
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.cc",
+        "file_last_write" : 1563316164
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 26,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 38,
+                "name" : "prog_reader__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@F@prog_reader__#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "zero_inflated_neg_binomial_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>4#Nb#T#T#Tzero_inflated_neg_binomial_lpmf#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 79,
+                "name" : "zero_inflated_neg_binomial_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_lpmf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 87,
+                "name" : "zero_inflated_neg_binomial_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 90,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lpmf_functor__@FT@>4#Nb#T#T#Toperator()#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 100,
+                "name" : "zero_inflated_neg_binomial_logit_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>4#Nb#T#T#Tzero_inflated_neg_binomial_logit_lpmf#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 132,
+                "name" : "zero_inflated_neg_binomial_logit_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_logit_lpmf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 140,
+                "name" : "zero_inflated_neg_binomial_logit_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_logit_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 143,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_logit_lpmf_functor__@FT@>4#Nb#T#T#Toperator()#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 153,
+                "name" : "zero_inflated_neg_binomial_log_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>4#Nb#T#T#Tzero_inflated_neg_binomial_log_lpmf#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 185,
+                "name" : "zero_inflated_neg_binomial_log_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_log_lpmf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 193,
+                "name" : "zero_inflated_neg_binomial_log_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_log_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 196,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_log_lpmf_functor__@FT@>4#Nb#T#T#Toperator()#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 206,
+                "name" : "zero_inflated_neg_binomial_log_logit_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>4#Nb#T#T#Tzero_inflated_neg_binomial_log_logit_lpmf#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 238,
+                "name" : "zero_inflated_neg_binomial_log_logit_lpmf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_log_logit_lpmf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 246,
+                "name" : "zero_inflated_neg_binomial_log_logit_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_log_logit_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 249,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_log_logit_lpmf_functor__@FT@>4#Nb#T#T#Toperator()#&1I#&1t0.1#&1t0.2#&1t0.3#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 259,
+                "name" : "zero_inflated_neg_binomial_lccdf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_lccdf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 283,
+                "name" : "zero_inflated_neg_binomial_lccdf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lccdf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 286,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lccdf_functor__@FT@>3#T#T#Toperator()#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 296,
+                "name" : "zero_inflated_neg_binomial_lcdf(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@FT@>3#T#T#Tzero_inflated_neg_binomial_lcdf#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 3,
+                "line" : 320,
+                "name" : "zero_inflated_neg_binomial_lcdf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lcdf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 323,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, const T3__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@S@zero_inflated_neg_binomial_lcdf_functor__@FT@>3#T#T#Toperator()#&1I#&1t0.0#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 2,
+                "line" : 332,
+                "name" : "model_zinb",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 355,
+                "name" : "ctor_body(stan::io::var_context &, unsigned int, std::ostream *)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@ctor_body#&$@N@stan@N@io@C@var_context#i#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 463,
+                "name" : "transform_inits(const stan::io::var_context &, std::vector<int> &, std::vector<double> &, std::ostream *)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@transform_inits#&1$@N@stan@N@io@C@var_context#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#&$@N@std@N@__1@C@vector>#d#$@N@std@N@__1@C@allocator>#d#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 516,
+                "name" : "transform_inits(const stan::io::var_context &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, std::ostream *)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@transform_inits#&1$@N@stan@N@io@C@var_context#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 9,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 529,
+                "name" : "log_prob(vector<T__> &, vector<int> &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@FT@>3#Nb#Nb#Tlog_prob#&>@N@std@N@__1@CT>2#T#T@vector2t0.2>@N@std@N@__1@CT>1#T@allocator1S2_#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 639,
+                "name" : "log_prob(Eigen::Matrix<T_, Eigen::Dynamic, 1> &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@FT@>3#Nb#Nb#Tlog_prob#&>@N@Eigen@CT>6#T#NI#NI#NI#NI#NI@Matrix6t0.2VI-1VI1VI0VI-1VI1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 650,
+                "name" : "get_param_names(std::vector<std::string> &)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@get_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 663,
+                "name" : "get_dims(std::vector<std::vector<size_t> > &)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@get_dims#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@vector>#l#$@N@std@N@__1@C@allocator>#l#$@N@std@N@__1@C@allocator>#S2_#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 688,
+                "name" : "write_array(RNG &, std::vector<double> &, std::vector<int> &, std::vector<double> &, bool, bool, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@FT@>1#Twrite_array#&t0.0#&$@N@std@N@__1@C@vector>#d#$@N@std@N@__1@C@allocator>#d#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#S2_#b#b#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 6,
+                "line" : 805,
+                "name" : "write_array(RNG &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, bool, bool, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@FT@>1#Twrite_array#&t0.0#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#b#b#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 24,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 822,
+                "name" : "model_name",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@model_name#S"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 827,
+                "name" : "constrained_param_names(std::vector<std::string> &, bool, bool)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@constrained_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#b#b#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 7,
+                "line" : 872,
+                "name" : "unconstrained_param_names(std::vector<std::string> &, bool, bool)",
+                "parent_name" : "model_zinb",
+                "usr" : "c:@N@model_zinb_namespace@C@model_zinb@F@unconstrained_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#b#b#1"
+            },
+            {
+                "column" : 42,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+                "kind" : 8,
+                "line" : 920,
+                "name" : "stan_model",
+                "parent_name" : "",
+                "usr" : "c:stanExports_zinb.h@T@stan_model"
+            }
+        ],
+        "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zinb.h",
+        "file_last_write" : 1569016896
+    },
+    {
+        "definitions" : [
+        ],
+        "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.cc",
+        "file_last_write" : 1563316164
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 26,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 38,
+                "name" : "prog_reader__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@F@prog_reader__#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 47,
+                "name" : "zero_inflated_poisson_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>3#Nb#T#Tzero_inflated_poisson_lpmf#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 78,
+                "name" : "zero_inflated_poisson_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_lpmf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 85,
+                "name" : "zero_inflated_poisson_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 88,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lpmf_functor__@FT@>3#Nb#T#Toperator()#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 97,
+                "name" : "zero_inflated_poisson_logit_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>3#Nb#T#Tzero_inflated_poisson_logit_lpmf#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 128,
+                "name" : "zero_inflated_poisson_logit_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_logit_lpmf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 135,
+                "name" : "zero_inflated_poisson_logit_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_logit_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 138,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_logit_lpmf_functor__@FT@>3#Nb#T#Toperator()#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 147,
+                "name" : "zero_inflated_poisson_log_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>3#Nb#T#Tzero_inflated_poisson_log_lpmf#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 178,
+                "name" : "zero_inflated_poisson_log_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_log_lpmf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 185,
+                "name" : "zero_inflated_poisson_log_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_log_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 188,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_log_lpmf_functor__@FT@>3#Nb#T#Toperator()#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 197,
+                "name" : "zero_inflated_poisson_log_logit_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>3#Nb#T#Tzero_inflated_poisson_log_logit_lpmf#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 228,
+                "name" : "zero_inflated_poisson_log_logit_lpmf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_log_logit_lpmf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 235,
+                "name" : "zero_inflated_poisson_log_logit_lpmf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_log_logit_lpmf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 238,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_log_logit_lpmf_functor__@FT@>3#Nb#T#Toperator()#&1I#&1t0.1#&1t0.2#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 247,
+                "name" : "zero_inflated_poisson_lccdf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_lccdf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 270,
+                "name" : "zero_inflated_poisson_lccdf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lccdf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 273,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lccdf_functor__@FT@>2#T#Toperator()#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 1,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 282,
+                "name" : "zero_inflated_poisson_lcdf(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@FT@>2#T#Tzero_inflated_poisson_lcdf#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 3,
+                "line" : 305,
+                "name" : "zero_inflated_poisson_lcdf_functor__",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lcdf_functor__"
+            },
+            {
+                "column" : 5,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 308,
+                "name" : "operator(const int &, const T1__ &, const T2__ &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@S@zero_inflated_poisson_lcdf_functor__@FT@>2#T#Toperator()#&1I#&1t0.0#&1t0.1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 2,
+                "line" : 316,
+                "name" : "model_zip",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 339,
+                "name" : "ctor_body(stan::io::var_context &, unsigned int, std::ostream *)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@ctor_body#&$@N@stan@N@io@C@var_context#i#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 445,
+                "name" : "transform_inits(const stan::io::var_context &, std::vector<int> &, std::vector<double> &, std::ostream *)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@transform_inits#&1$@N@stan@N@io@C@var_context#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#&$@N@std@N@__1@C@vector>#d#$@N@std@N@__1@C@allocator>#d#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 485,
+                "name" : "transform_inits(const stan::io::var_context &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, std::ostream *)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@transform_inits#&1$@N@stan@N@io@C@var_context#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 9,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 498,
+                "name" : "log_prob(vector<T__> &, vector<int> &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@FT@>3#Nb#Nb#Tlog_prob#&>@N@std@N@__1@CT>2#T#T@vector2t0.2>@N@std@N@__1@CT>1#T@allocator1S2_#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 8,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 599,
+                "name" : "log_prob(Eigen::Matrix<T_, Eigen::Dynamic, 1> &, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@FT@>3#Nb#Nb#Tlog_prob#&>@N@Eigen@CT>6#T#NI#NI#NI#NI#NI@Matrix6t0.2VI-1VI1VI0VI-1VI1#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 610,
+                "name" : "get_param_names(std::vector<std::string> &)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@get_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 622,
+                "name" : "get_dims(std::vector<std::vector<size_t> > &)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@get_dims#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@vector>#l#$@N@std@N@__1@C@allocator>#l#$@N@std@N@__1@C@allocator>#S2_#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 645,
+                "name" : "write_array(RNG &, std::vector<double> &, std::vector<int> &, std::vector<double> &, bool, bool, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@FT@>1#Twrite_array#&t0.0#&$@N@std@N@__1@C@vector>#d#$@N@std@N@__1@C@allocator>#d#&$@N@std@N@__1@C@vector>#I#$@N@std@N@__1@C@allocator>#I#S2_#b#b#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 6,
+                "line" : 760,
+                "name" : "write_array(RNG &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, Eigen::Matrix<double, Eigen::Dynamic, 1> &, bool, bool, std::ostream *)",
+                "parent_name" : "",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@FT@>1#Twrite_array#&t0.0#&$@N@Eigen@C@Matrix>#d#VI-1#VI1#VI0#VI-1#VI1#S2_#b#b#*$@N@std@N@__1@C@basic_ostream>#C#$@N@std@N@__1@S@char_traits>#C#1"
+            },
+            {
+                "column" : 24,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 777,
+                "name" : "model_name",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@model_name#S"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 782,
+                "name" : "constrained_param_names(std::vector<std::string> &, bool, bool)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@constrained_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#b#b#1"
+            },
+            {
+                "column" : 10,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 7,
+                "line" : 824,
+                "name" : "unconstrained_param_names(std::vector<std::string> &, bool, bool)",
+                "parent_name" : "model_zip",
+                "usr" : "c:@N@model_zip_namespace@C@model_zip@F@unconstrained_param_names#&$@N@std@N@__1@C@vector>#$@N@std@N@__1@C@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@C@allocator>#C#$@N@std@N@__1@C@allocator>#S2_#b#b#1"
+            },
+            {
+                "column" : 40,
+                "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+                "kind" : 8,
+                "line" : 869,
+                "name" : "stan_model",
+                "parent_name" : "",
+                "usr" : "c:stanExports_zip.h@T@stan_model"
+            }
+        ],
+        "file" : "/Users/kbchoi/Projects/PoolClass/scRATE/src/stanExports_zip.h",
+        "file_last_write" : 1569016896
+    }
+]

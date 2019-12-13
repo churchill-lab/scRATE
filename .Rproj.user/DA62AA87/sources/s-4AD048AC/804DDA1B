@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563401209507.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "804DDA1B",
+    "lastKnownWriteTime" : 1569351643,
+    "last_content_update" : 1569351643,
+    "path" : "~/Projects/scRATE/R/submit_jobs.R",
+    "project_path" : "R/submit_jobs.R",
+    "properties" : {
+        "cursorPosition" : "0,52",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

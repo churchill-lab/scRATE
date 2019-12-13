@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1563401197708.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9524D412",
+    "lastKnownWriteTime" : 1569014941,
+    "last_content_update" : 1569014941,
+    "path" : "~/Projects/scRATE/R/compare_count_models.R",
+    "project_path" : "R/compare_count_models.R",
+    "properties" : {
+        "cursorPosition" : "0,52",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

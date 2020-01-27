@@ -15,7 +15,7 @@
 #' @return ... None is returned.
 #'
 prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
-                              layer=NULL, nCores=NULL, seed=NULL, 
+                              layer=NULL, nCores=NULL, seed=NULL,
                               gene_start=NULL, gene_end=NULL, chunk_start=NULL, chunk_end=NULL) {
   if(is.null(nCores)) {
     nCores <- min(4, parallel::detectCores())
@@ -36,6 +36,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   num_genes <- dim(dmat)[2]
   gname <- ds$row.attrs$GeneID[]
   cname <- ds$col.attrs$CellID[]
+  ctype <- factor(ds$col.attrs$CellType[])
   selected <- ds$row.attrs$`Selected:EM`[]
   if(length(selected) == 0) {
     selected <- ds$row.attrs$`Selected`[]
@@ -99,7 +100,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
       cntmat <- dmat[s:e,]
       gsurv  <- selected[s:e]
       outfile <- file.path(outdir, sprintf('_chunk.%05d', k))
-      save(cntmat, gsurv, csize, file = outfile)
+      save(cntmat, gsurv, csize, ctype, file = outfile)
       cat(sprintf("[prepare_job_array] Created input file: %s\n", outfile))
     }
     sh_file <- file.path(outdir, 'run_subjobs.sh')
@@ -121,4 +122,3 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     }
   }
 }
-   

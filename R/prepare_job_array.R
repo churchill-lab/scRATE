@@ -36,7 +36,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   num_genes <- dim(dmat)[2]
   gname <- ds$row.attrs$GeneID[]
   cname <- ds$col.attrs$CellID[]
-  ctype <- factor(ds$col.attrs$CellType[])
+  ctype <- ds$col.attrs$CellType[]
   selected <- ds$row.attrs$`Selected:EM`[]
   if(length(selected) == 0) {
     selected <- ds$row.attrs$`Selected`[]

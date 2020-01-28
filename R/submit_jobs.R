@@ -16,8 +16,8 @@
 #' @param chunk_end Ending chunk index to submit
 #' @return ... None is returned
 #'
-submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile, 
-                        layer=NULL, nCores=NULL, seed=NULL, 
+submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
+                        layer=NULL, nCores=NULL, seed=NULL,
                         gene_start=NULL, gene_end=NULL, chunk_start=NULL, chunk_end=NULL) {
   if(is.null(nCores)) {
     nCores <- min(4, parallel::detectCores())
@@ -43,7 +43,7 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
     selected <- ds$row.attrs$`Selected`[]
   }
   bestmodel <- ds$row.attrs$BestModel[]
-  ctype <- factor(ds$col.attrs$CellType[])
+  ctype <- ds$col.attrs$CellType[]
   ds$close_all()
 
   if(is.null(gene_start)) {
@@ -104,7 +104,7 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
     model2fit <- bestmodel[s:e]
     ifile <- sprintf('%s/_chunk.%05d-%05d.rds', outdir, s, e)
     ofile <- sprintf('%s/_scrate_model_fit.%05d-%05d.rds', outdir, s, e)
-    cmdstr <- sprintf('qsub -o %s -e %s -v RFILE=%s,INFILE=%s,OUTFILE=%s,CORES=%d,SEED=%d %s', 
+    cmdstr <- sprintf('qsub -o %s -e %s -v RFILE=%s,INFILE=%s,OUTFILE=%s,CORES=%d,SEED=%d %s',
                       outdir, outdir, rfile, ifile, ofile, nCores, seed, scriptfile)
     if(!dryrun) {
       save(cntmat, gsurv, csize, ctype, model2fit, file = ifile)

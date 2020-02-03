@@ -9,7 +9,7 @@
 #' @return modelcall Models called for genes. Stored in the input loomfile if provided.
 #'
 perform_model_selection <- function(fit_list, margin=2, loomfile=NULL, attr_name=NULL, verbose=FALSE) {
-                                     
+
   gsurv <- names(fit_list)
   modelcall <- c()
   for (g in gsurv) {
@@ -34,7 +34,7 @@ perform_model_selection <- function(fit_list, margin=2, loomfile=NULL, attr_name
     modelcall_fullsize[gene_idx] <- modelcall
     ra <- vector(mode="list", length=1)
     if(is.null(attr_name)) {
-      attr_name <- sprintf('ModelCall_SD%.1f', margin)
+      attr_name <- sprintf('ModelCall_SE%.1f', margin)
     }
     names(ra) <- attr_name
     ra[[attr_name]] <- modelcall_fullsize

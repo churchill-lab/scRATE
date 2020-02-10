@@ -13,7 +13,7 @@ fit_count_models(y, exposure, ctype = NULL, nCores = NULL,
 
 \item{exposure}{Numeric vector of cell sizes (total UMI counts per cell)}
 
-\item{ctype}{Factorized of cell types (Cluster IDs)}
+\item{ctype}{Cell types}
 
 \item{nCores}{Number of cores}
 

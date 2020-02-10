@@ -3,7 +3,7 @@
 #' @export
 #' @param y Numeric vector of UMI counts
 #' @param exposure Numeric vector of cell sizes (total UMI counts per cell)
-#' @param ctype Factorized of cell types (Cluster IDs)
+#' @param ctype Cell types
 #' @param adapt_delta  The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)
 #' @param nCores Number of cores
 #' @param seed Seed number
@@ -44,7 +44,7 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
                                    data = gexpr,
                                    cores = nCores,
                                    seed = seed,
-                                   refresh = 0)      
+                                   refresh = 0)
     }
   }
 

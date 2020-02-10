@@ -5,8 +5,8 @@
 \title{Bayesian model selection for scRNA-seq count data}
 \usage{
 prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
-  nCores = NULL, seed = NULL, gene_start = NULL, gene_end = NULL,
-  chunk_start = NULL, chunk_end = NULL)
+  covariate = NULL, nCores = NULL, seed = NULL, gene_start = NULL,
+  gene_end = NULL, chunk_start = NULL, chunk_end = NULL)
 }
 \arguments{
 \item{loomfile}{Expression quantity file (loom format).}
@@ -18,6 +18,8 @@ prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
 \item{dryrun}{TRUE if you only want to check the job submission commands.}
 
 \item{layer}{Layer name of the count to use in the loom file.}
+
+\item{covariate}{Name of covariate (A col.attrs name in the input loomfile.)}
 
 \item{nCores}{Number of cores to run stan fitting in parallel}
 

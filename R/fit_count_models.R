@@ -27,7 +27,7 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
   }
   fitting <- list()
 
-  if(is.null(model2fit) || model2fit==1) {
+  if(is.null(model2fit) || 1 %in% model2fit) {
     message('Fitting data with Poisson model...')
     if(is.null(ctype)) {
       fitting[["P"]] <- stan_glm(y ~ 1,
@@ -48,7 +48,7 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
     }
   }
 
-  if(is.null(model2fit) || model2fit==2) {
+  if(is.null(model2fit) || 2 %in% model2fit) {
     message('Fitting data with Negative Binomial model...')
     if(is.null(ctype)) {
       fitting[["NB"]] <- stan_glm(y ~ 1,
@@ -69,7 +69,7 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
     }
   }
 
-  if(is.null(model2fit) || model2fit==3) {
+  if(is.null(model2fit) || 3 %in% model2fit) {
     message('Fitting data with Zero-Inflated Poisson model...')
     if(is.null(ctype)) {
       myprior_3 <- get_prior(bf(y ~ 1 + offset(exposure), zi ~ 1),
@@ -118,7 +118,7 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
     fitting[["ZIP"]] <- fit_3
   }
 
-  if(is.null(model2fit) || model2fit==4) {
+  if(is.null(model2fit) || 4 %in% model2fit) {
     message('Fitting data with Zero-Inflated Negative Binomial model...')
     if(is.null(ctype)) {
       myprior_4 <- get_prior(bf(y ~ 1 + offset(exposure), zi ~ 1),

@@ -7,33 +7,44 @@
 #
 get_model_params <- function(model_fit, ctyped=FALSE) {
   result <- list()
+  models <- names(model_fit)
   if(ctyped) {
-    result[['P']] <- list()
-    result[['P']][['summary']] <- as.data.frame(summary(model_fit[['P']]))
-    result[['P']][['fixef']] <- fixef(model_fit[['P']])
-    result[['P']][['ranef']] <- ranef(model_fit[['P']])$ctype
-    result[['P']][['coef']] <- coef(model_fit[['P']])$ctype
-    result[['NB']] <- list()
-    result[['NB']][['summary']] <- as.data.frame(summary(model_fit[['NB']]))
-    result[['NB']][['fixef']] <- fixef(model_fit[['NB']])
-    result[['NB']][['ranef']] <- ranef(model_fit[['NB']])$ctype
-    result[['NB']][['coef']] <- coef(model_fit[['NB']])$ctype
-    result[['ZIP']] <- list()
-    result[['ZIP']][['fixef']] <- summary(model_fit[['ZIP']])$fixed
-    result[['ZIP']][['random']] <- summary(model_fit[['ZIP']])$random$ctype
-    result[['ZIP']][['ranef']] <- ranef(model_fit[['ZIP']])$ctype[ , , 1]
-    result[['ZIP']][['coef']] <- coef(model_fit[['ZIP']])$ctype[ , , 1]
-    result[['ZINB']] <- list()
-    result[['ZINB']][['fixef']] <- summary(model_fit[['ZINB']])$fixed
-    result[['ZINB']][['random']] <- summary(model_fit[['ZINB']])$random$ctype
-    result[['ZINB']][['shape']] <- summary(model_fit[['ZINB']])$spec_pars
-    result[['ZINB']][['ranef']] <- ranef(model_fit[['ZINB']])$ctype[ , , 1]
-    result[['ZINB']][['coef']] <- coef(model_fit[['ZINB']])$ctype[ , , 1]
+    if('P' %in% models) {
+      result[['P']] <- list()
+      result[['P']][['summary']] <- as.data.frame(summary(model_fit[['P']]))
+      result[['P']][['fixef']] <- fixef(model_fit[['P']])
+      result[['P']][['ranef']] <- ranef(model_fit[['P']])$ctype
+      result[['P']][['coef']] <- coef(model_fit[['P']])$ctype
+    } else if('NB' %in% models) {
+      result[['NB']] <- list()
+      result[['NB']][['summary']] <- as.data.frame(summary(model_fit[['NB']]))
+      result[['NB']][['fixef']] <- fixef(model_fit[['NB']])
+      result[['NB']][['ranef']] <- ranef(model_fit[['NB']])$ctype
+      result[['NB']][['coef']] <- coef(model_fit[['NB']])$ctype
+    } else if('ZIP' %in% models) {
+      result[['ZIP']] <- list()
+      result[['ZIP']][['fixef']] <- summary(model_fit[['ZIP']])$fixed
+      result[['ZIP']][['random']] <- summary(model_fit[['ZIP']])$random$ctype
+      result[['ZIP']][['ranef']] <- ranef(model_fit[['ZIP']])$ctype[ , , 1]
+      result[['ZIP']][['coef']] <- coef(model_fit[['ZIP']])$ctype[ , , 1]
+    } else if('ZINB' %in% models) {
+      result[['ZINB']] <- list()
+      result[['ZINB']][['fixef']] <- summary(model_fit[['ZINB']])$fixed
+      result[['ZINB']][['random']] <- summary(model_fit[['ZINB']])$random$ctype
+      result[['ZINB']][['shape']] <- summary(model_fit[['ZINB']])$spec_pars
+      result[['ZINB']][['ranef']] <- ranef(model_fit[['ZINB']])$ctype[ , , 1]
+      result[['ZINB']][['coef']] <- coef(model_fit[['ZINB']])$ctype[ , , 1]
+    }
   } else {
-    result[['P']]    <- model_fit[['P']]$coefficients
-    result[['NB']]   <- colMeans(as.data.frame(model_fit[['NB']]))
-    result[['ZIP']]  <- colMeans(as.matrix(model_fit[['ZIP']], pars = c("b_Intercept", "b_zi_Intercept")))
-    result[['ZINB']] <- colMeans(as.matrix(model_fit[['ZINB']], pars = c("b_Intercept", "b_zi_Intercept", "shape")))
+    if('P' %in% models) {
+      result[['P']]    <- model_fit[['P']]$coefficients
+    } else if('NB' %in% models) {
+      result[['NB']]   <- colMeans(as.data.frame(model_fit[['NB']]))
+    } else if('ZIP' %in% models) {
+      result[['ZIP']]  <- colMeans(as.matrix(model_fit[['ZIP']], pars = c("b_Intercept", "b_zi_Intercept")))
+    } else if('ZINB' %in% models) {
+      result[['ZINB']] <- colMeans(as.matrix(model_fit[['ZINB']], pars = c("b_Intercept", "b_zi_Intercept", "shape")))
+    }
   }
   return(result)
 }

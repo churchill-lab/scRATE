@@ -5,10 +5,16 @@
 #' @return ELPD_loo result
 #
 compare_count_models <- function(model_fit) {
-  loo_1 <- loo(model_fit$P)
-  loo_2 <- loo(model_fit$NB)
-  loo_3 <- loo(model_fit$ZIP)
-  loo_4 <- loo(model_fit$ZINB)
+  models <- names(model_fit)
+  if('P' %in% models) {
+    loo_1 <- loo(model_fit$P)
+  } else if('NB' %in% models) {
+    loo_2 <- loo(model_fit$NB)
+  } else if('ZIP' %in% models) {
+    loo_3 <- loo(model_fit$ZIP)
+  } else if('ZINB' %in% models) {
+    loo_4 <- loo(model_fit$ZINB)
+  }
   res <- loo_compare(loo_1, loo_2, loo_3, loo_4)
   return(res)
 }

@@ -167,7 +167,6 @@ fit_count_models <- function(y, exposure, ctype=NULL, nCores=NULL, seed=NULL, ad
     fitting[["ZINB"]] <- fit_4
   }
 
-  message('Finished fitting all four models (P, NB, ZIP, & ZINB).')
   return(fitting)
 
 }

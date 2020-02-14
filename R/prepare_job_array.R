@@ -9,6 +9,7 @@
 #' @param covariate Name of covariate (A col.attrs name in the input loomfile.)
 #' @param nCores Number of cores to run stan fitting in parallel
 #' @param seed Seed number to reproduce randomized results
+#' @param hpc Cluster HPC system 'slurm' (default) or 'pbs'
 #' @param gene_start Starting gene index to analyze.
 #' @param gene_end Ending gene index to analyze.
 #' @param chunk_start Starting chunk index to submit.

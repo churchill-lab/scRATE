@@ -26,6 +26,8 @@ prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
 
 \item{seed}{Seed number to reproduce randomized results}
 
+\item{hpc}{Cluster HPC system 'slurm' (default) or 'pbs'}
+
 \item{gene_start}{Starting gene index to analyze.}
 
 \item{gene_end}{Ending gene index to analyze.}

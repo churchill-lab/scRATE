@@ -5,8 +5,9 @@
 \title{Bayesian model selection for scRNA-seq count data}
 \usage{
 prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
-  covariate = NULL, nCores = NULL, seed = NULL, gene_start = NULL,
-  gene_end = NULL, chunk_start = NULL, chunk_end = NULL)
+  covariate = NULL, nCores = NULL, seed = NULL, hpc = c("slurm",
+  "pbs"), gene_start = NULL, gene_end = NULL, chunk_start = NULL,
+  chunk_end = NULL)
 }
 \arguments{
 \item{loomfile}{Expression quantity file (loom format).}

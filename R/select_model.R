@@ -16,28 +16,30 @@ select_model <- function(loo_results, margin=2) {
   m4idx <- which(rownames(loo_results) == 'model_fit$ZINB' | rownames(loo_results) == 'model4')
   if(length(m4idx)) { rownames(loo_results)[m4idx] <- 'ZINB' }
 
+  models <- rownames(loo_results)
+
   if (rownames(loo_results)[1] == 'P') {
     return(1)
   } else if (rownames(loo_results)[1] == 'NB') {
-    if (abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
+    if (abs('P' %in% models && loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
       return(1)
     } else {
       return(2)
     }
   } else if (rownames(loo_results)[1] == 'ZIP') {
-    if (abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
+    if ('P' %in% models && abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
       return(1)
-    } else if (abs(loo_results['NB',][['elpd_diff']]) < margin * loo_results['NB',][['se_diff']]) {
+    } else if ('NB' %in% models && abs(loo_results['NB',][['elpd_diff']]) < margin * loo_results['NB',][['se_diff']]) {
       return(2)
     } else {
       return(3)
     }
   } else if (rownames(loo_results)[1] == 'ZINB') {
-    if (abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
+    if ('P' %in% models && abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
       return(1)
-    } else if (abs(loo_results['NB',][['elpd_diff']]) < margin * loo_results['NB',][['se_diff']]) {
+    } else if ('NB' %in% models && abs(loo_results['NB',][['elpd_diff']]) < margin * loo_results['NB',][['se_diff']]) {
       return(2)
-    } else if (abs(loo_results['ZIP',][['elpd_diff']]) < margin * loo_results['ZIP',][['se_diff']]) {
+    } else if ('ZIP' %in% models && abs(loo_results['ZIP',][['elpd_diff']]) < margin * loo_results['ZIP',][['se_diff']]) {
       return(3)
     } else {
       return(4)

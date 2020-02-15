@@ -137,7 +137,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     cat('# Run your R script that uses scRATE library\n', file=sh_file_pbs, append=TRUE)
     cat('ARRAY_ID=`printf %05d $PBS_ARRAYID`\n', file=sh_file_pbs, append=TRUE)
     cat('Rscript ${RFILE} _chunk.${ARRAY_ID} _scrate_elpd_loo.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_pbs, append=TRUE)
-    Sys.chmod(sh_file_pbs_pbs, '0755')
+    Sys.chmod(sh_file_pbs, '0755')
     cat(sprintf("[prepare_job_array] Generated bash script, %s, for submitting array jobs. Modify the file if needed.\n", sh_file_pbs))
   } else {
     for (k in cidx1:cidx2) {

@@ -121,7 +121,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     cat('module load singularity\n\n', file=sh_file_slurm, append=TRUE)
     cat('# Run your R script that uses scRATE singularity container\n', file=sh_file_slurm, append=TRUE)
     cat('ARRAY_ID=`printf %05d $SLURM_ARRAY_TASK_ID`\n', file=sh_file_slurm, append=TRUE)
-    cat('singularity run --app Rscript ${CONTAINER} ${RFILE} ${INFILE}.${ARRAY_ID} ${OUTFILE}.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_slurm, append=TRUE)
+    cat('singularity run --app Rscript ${CONTAINER} ${RFILE} _chunk.${ARRAY_ID} _scrate.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_slurm, append=TRUE)
     Sys.chmod(sh_file_slurm, '0755')
     # Script for PBS/Torque
     sh_file_pbs <- file.path(outdir, 'run_subjobs.sh.pbs')
@@ -136,7 +136,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     cat('module load R/3.5.1\n\n', file=sh_file_pbs, append=TRUE)
     cat('# Run your R script that uses scRATE library\n', file=sh_file_pbs, append=TRUE)
     cat('ARRAY_ID=`printf %05d $PBS_ARRAYID`\n', file=sh_file_pbs, append=TRUE)
-    cat('Rscript ${RFILE} _chunk.${ARRAY_ID} _scrate_elpd_loo.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_pbs, append=TRUE)
+    cat('Rscript ${RFILE} _chunk.${ARRAY_ID} _scrate.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_pbs, append=TRUE)
     Sys.chmod(sh_file_pbs, '0755')
     cat(sprintf("[prepare_job_array] Generated bash script, %s, for submitting array jobs. Modify the file if needed.\n", sh_file_pbs))
   } else {

@@ -2,18 +2,15 @@
 % Please edit documentation in R/fit_count_models.R
 \name{fit_count_models}
 \alias{fit_count_models}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Fit a gene with regression models}
 \usage{
-fit_count_models(y, exposure, ctype = NULL, nCores = NULL,
-  seed = NULL, adapt_delta = 0.8, model2fit = NULL,
-  brms4zi = FALSE)
+fit_count_models(gexpr, f, nCores = NULL, seed = NULL,
+  adapt_delta = 0.8, model2fit = NULL, brms4zi = TRUE)
 }
 \arguments{
-\item{y}{Numeric vector of UMI counts}
+\item{gexpr}{A data frame that containes UMI count (y), log_exposure (exposure), and covariate values}
 
-\item{exposure}{Numeric vector of cell sizes (total UMI counts per cell)}
-
-\item{ctype}{Cell types}
+\item{f}{A regression formula to fit the non-zero-inflated counts}
 
 \item{nCores}{Number of cores}
 
@@ -23,11 +20,11 @@ fit_count_models(y, exposure, ctype = NULL, nCores = NULL,
 
 \item{model2fit}{A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)}
 
-\item{brms4zi}{Whether to run brms for zero-inflated models (default is to run rstan::sampling)}
+\item{brms4zi}{Whether to run brms for zero-inflated models (Deprecated)}
 }
 \value{
 A list of `stanfit` returned by model(s)
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Fit a gene with regression models
 }

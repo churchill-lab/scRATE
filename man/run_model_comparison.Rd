@@ -2,13 +2,15 @@
 % Please edit documentation in R/run_model_comparison.R
 \name{run_model_comparison}
 \alias{run_model_comparison}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Fit regression models for many genes}
 \usage{
-run_model_comparison(cntfile, nCores = NULL, seed = NULL,
-  adapt_delta = 0.8, brms4zi = FALSE, outfile = NULL)
+run_model_comparison(cntfile, formula_string = NULL, nCores = NULL,
+  seed = NULL, adapt_delta = 0.8, brms4zi = TRUE, outfile = NULL)
 }
 \arguments{
-\item{cntfile}{Expression quantity file (RData format: Use 'save' and 'load')}
+\item{cntfile}{Expression quantity file (RData format: Use 'save' and 'load'). The count matrix is gene x cell.}
+
+\item{formula_string}{A regression formula to fit the non-zero-inflated counts}
 
 \item{nCores}{Number of cores}
 
@@ -16,13 +18,13 @@ run_model_comparison(cntfile, nCores = NULL, seed = NULL,
 
 \item{adapt_delta}{The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)}
 
-\item{brms4zi}{Whether to run brms for zero-inflated models (default is to run rstan::sampling)}
+\item{brms4zi}{Whether to run brms for zero-inflated models (Deprecated)}
 
 \item{outfile}{Output file name to store ELPD_loo results (RDS format)}
 }
 \value{
-A list of ELPD_loo results returned by loo::compare
+A list of ELPD_loo results and mean parameters returned by loo::compare
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Fit regression models for many genes
 }

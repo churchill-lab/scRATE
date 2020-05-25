@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_model_best.R
 \name{find_model_best}
 \alias{find_model_best}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Find representative genes for a given model}
 \usage{
 find_model_best(fit_list, model2find, margin = 2, loomfile = NULL,
   attr_name = NULL, verbose = FALSE)
@@ -24,5 +24,5 @@ find_model_best(fit_list, model2find, margin = 2, loomfile = NULL,
 best_model_calls Genes that Best fits to a given model are also stored in the input loomfile
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Find representative genes for a given model
 }

@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Select model for every genes and save it to the original loom file
 #'
 #' @export
 #' @param fit_list A list of model fitting results

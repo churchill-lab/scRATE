@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Collate the results from "run_model_comparison" into a single list (and save in RDS format)
 #'
 #' @export
 #' @param loo_dir A folder name in which leave-one-out ELPD result files reside

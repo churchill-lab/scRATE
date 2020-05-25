@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Select models that best fits the gene data
 #'
 #' @export
 #' @param loo_results ELPD_loo for models

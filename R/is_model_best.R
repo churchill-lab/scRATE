@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Checks if the gene best fits a certain model significantly better over all the other models
 #'
 #' @export
 #' @param loo_result ELPD_loo for models
@@ -17,7 +17,7 @@ is_model_best <- function(loo_result, model2check, margin=2) {
     if (rownames(loo_result)[1] == 'model1') {
       if (abs(loo_result['model2',][['elpd_diff']]) > margin * loo_result['model2',][['se_diff']] &&
           abs(loo_result['model3',][['elpd_diff']]) > margin * loo_result['model3',][['se_diff']] &&
-          abs(loo_result['model4',][['elpd_diff']]) > margin * loo_result['model4',][['se_diff']]) 
+          abs(loo_result['model4',][['elpd_diff']]) > margin * loo_result['model4',][['se_diff']])
       {
         return(TRUE)
       } else {
@@ -30,7 +30,7 @@ is_model_best <- function(loo_result, model2check, margin=2) {
     if (rownames(loo_result)[1] == 'model2') {
       if (abs(loo_result['model3',][['elpd_diff']]) > margin * loo_result['model3',][['se_diff']] &&
           abs(loo_result['model4',][['elpd_diff']]) > margin * loo_result['model4',][['se_diff']] &&
-          abs(loo_result['model1',][['elpd_diff']]) > margin * loo_result['model1',][['se_diff']]) 
+          abs(loo_result['model1',][['elpd_diff']]) > margin * loo_result['model1',][['se_diff']])
       {
         return(TRUE)
       } else {
@@ -43,7 +43,7 @@ is_model_best <- function(loo_result, model2check, margin=2) {
     if (rownames(loo_result)[1] == 'model3') {
       if (abs(loo_result['model4',][['elpd_diff']]) > margin * loo_result['model4',][['se_diff']] &&
           abs(loo_result['model1',][['elpd_diff']]) > margin * loo_result['model1',][['se_diff']] &&
-          abs(loo_result['model2',][['elpd_diff']]) > margin * loo_result['model2',][['se_diff']]) 
+          abs(loo_result['model2',][['elpd_diff']]) > margin * loo_result['model2',][['se_diff']])
       {
         return(TRUE)
       } else {
@@ -56,7 +56,7 @@ is_model_best <- function(loo_result, model2check, margin=2) {
     if (rownames(loo_result)[1] == 'model4') {
       if (abs(loo_result['model1',][['elpd_diff']]) > margin * loo_result['model1',][['se_diff']] &&
           abs(loo_result['model2',][['elpd_diff']]) > margin * loo_result['model2',][['se_diff']] &&
-          abs(loo_result['model3',][['elpd_diff']]) > margin * loo_result['model3',][['se_diff']]) 
+          abs(loo_result['model3',][['elpd_diff']]) > margin * loo_result['model3',][['se_diff']])
       {
         return(TRUE)
       } else {
@@ -66,5 +66,5 @@ is_model_best <- function(loo_result, model2check, margin=2) {
       return(FALSE)
     }
   }
-        
+
 }

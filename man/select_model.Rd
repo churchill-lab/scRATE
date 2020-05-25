@@ -2,7 +2,7 @@
 % Please edit documentation in R/select_model.R
 \name{select_model}
 \alias{select_model}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Select models that best fits the gene data}
 \usage{
 select_model(loo_results, margin = 2)
 }
@@ -15,5 +15,5 @@ select_model(loo_results, margin = 2)
 selected_model Reports the model scRATE selects (1:P, 2:NB, 3:ZIP, 4:ZINB)
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Select models that best fits the gene data
 }

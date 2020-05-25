@@ -2,7 +2,7 @@
 % Please edit documentation in R/collate_results.R
 \name{collate_results}
 \alias{collate_results}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Collate the results from "run_model_comparison" into a single list (and save in RDS format)}
 \usage{
 collate_results(loo_dir, globstr = "_scrate*", loo_outfile = NULL)
 }
@@ -17,5 +17,5 @@ collate_results(loo_dir, globstr = "_scrate*", loo_outfile = NULL)
 A list of collated results if 'loo_outfile' is not given
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Collate the results from "run_model_comparison" into a single list (and save in RDS format)
 }

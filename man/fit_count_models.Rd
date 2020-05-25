@@ -5,7 +5,7 @@
 \title{Fit a gene with regression models}
 \usage{
 fit_count_models(gexpr, f, nCores = NULL, seed = NULL,
-  adapt_delta = 0.8, model2fit = NULL, brms4zi = TRUE)
+  adapt_delta = 0.8, model2fit = NULL)
 }
 \arguments{
 \item{gexpr}{A data frame that containes UMI count (y), log_exposure (exposure), and covariate values}
@@ -19,8 +19,6 @@ fit_count_models(gexpr, f, nCores = NULL, seed = NULL,
 \item{adapt_delta}{The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)}
 
 \item{model2fit}{A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)}
-
-\item{brms4zi}{Whether to run brms for zero-inflated models (Deprecated)}
 }
 \value{
 A list of `stanfit` returned by model(s)

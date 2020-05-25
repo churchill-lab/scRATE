@@ -5,7 +5,7 @@
 \title{Fit regression models for many genes}
 \usage{
 run_model_comparison(cntfile, formula_string = NULL, nCores = NULL,
-  seed = NULL, adapt_delta = 0.8, brms4zi = TRUE, outfile = NULL)
+  seed = NULL, adapt_delta = 0.8, outfile = NULL)
 }
 \arguments{
 \item{cntfile}{Expression quantity file (RData format: Use 'save' and 'load'). The count matrix is gene x cell.}
@@ -17,8 +17,6 @@ run_model_comparison(cntfile, formula_string = NULL, nCores = NULL,
 \item{seed}{Seed number}
 
 \item{adapt_delta}{The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)}
-
-\item{brms4zi}{Whether to run brms for zero-inflated models (Deprecated)}
 
 \item{outfile}{Output file name to store ELPD_loo results (RDS format)}
 }

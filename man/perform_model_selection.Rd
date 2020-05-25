@@ -2,7 +2,7 @@
 % Please edit documentation in R/perform_model_selections.R
 \name{perform_model_selection}
 \alias{perform_model_selection}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Select model for every genes and save it to the original loom file}
 \usage{
 perform_model_selection(fit_list, margin = 2, loomfile = NULL,
   attr_name = NULL, verbose = FALSE)
@@ -22,5 +22,5 @@ perform_model_selection(fit_list, margin = 2, loomfile = NULL,
 modelcall Models called for genes. Stored in the input loomfile if provided.
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Select model for every genes and save it to the original loom file
 }

@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Compare models in respect to ELPD_loo
 #'
 #' @export
 #' @param model_fit A list of four model fits

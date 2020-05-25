@@ -1,12 +1,12 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Divide the entire data into many chunks to "run_model_comparison" on a cluster in parallel
 #'
 #' @export
 #' @param loomfile Expression quantity file (loom format).
 #' @param num_chunks Number of chunks.
 #' @param outdir Name of the folder where results should be stored.
 #' @param dryrun TRUE if you only want to check the job submission commands.
-#' @param layer Layer name of the count to use in the loom file.
 #' @param covariate Name of covariate (A col.attrs name in the input loomfile.)
+#' @param layer A layer name of the count to use in the loom file.
 #' @param nCores Number of cores to run stan fitting in parallel
 #' @param seed Seed number to reproduce randomized results
 #' @param gene_start Starting gene index to analyze.
@@ -16,7 +16,7 @@
 #' @return ... None is returned.
 #'
 prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
-                              layer=NULL, covariate=NULL, nCores=NULL, seed=NULL,
+                              covariate=c(), layer=NULL, nCores=NULL, seed=NULL,
                               gene_start=NULL, gene_end=NULL, chunk_start=NULL, chunk_end=NULL) {
   if(is.null(nCores)) {
     nCores <- min(4, parallel::detectCores())
@@ -37,12 +37,14 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   num_genes <- dim(dmat)[2]
   gname <- ds$row.attrs$GeneID[]
   cname <- ds$col.attrs$CellID[]
-  if(is.null(covariate)) {
-    ctype <- NULL
-    cat('[prepare_job_array] No covariate will be used.\n')
+  covar_list <- list()
+  if(length(covariate) > 0) {
+    for (covar in covariate) {
+      covar_list[[cover]] <- ds$col.attrs[[covar]][]
+      cat(sprintf('[prepare_job_array] %s is successfully loaded from the loom file.\n', covar))
+    }
   } else {
-    ctype <- ds$col.attrs[[covariate]][]
-    cat(sprintf('[prepare_job_array] %s will be used as a covariate.\n', covariate))
+    cat('[prepare_job_array] No covariate will be used.\n')
   }
   selected <- ds$row.attrs$Selected[]
   ds$close_all()
@@ -101,10 +103,11 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     for (k in cidx1:cidx2) {
       s <- gene_starts[k]
       e <- gene_ends[k]
-      cntmat <- dmat[s:e,]
       gsurv  <- selected[s:e]
+      # cntmat <- dmat[s:e,]
+      cntmat <- dmat[s:e,][gsurv, ]
       outfile <- file.path(outdir, sprintf('_chunk.%05d', k))
-      save(cntmat, gsurv, csize, ctype, file = outfile)
+      save(cntmat, csize, covar_list, file = outfile)
       cat(sprintf("[prepare_job_array] Created input file: %s\n", outfile))
     }
     sh_file_slurm <- file.path(outdir, 'run_subjobs.sh.slurm')

@@ -2,18 +2,18 @@
 % Please edit documentation in R/get_model_params.R
 \name{get_model_params}
 \alias{get_model_params}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{An internal function to re-organize stan_fit parameters}
 \usage{
-get_model_params(model_fit, ctyped = FALSE)
+get_model_params(model_fit, covariate = NULL)
 }
 \arguments{
 \item{model_fit}{A list of four model fits}
 
-\item{ctyped}{Whether model_fit used ctype as covariate}
+\item{covariate}{A list of covariates if any}
 }
 \value{
 A list of mean parameter values for each model
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+An internal function to re-organize stan_fit parameters
 }

@@ -1,15 +1,16 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Fit regression models for many genes
 #'
 #' @export
-#' @param cntfile Expression quantity file (RData format: Use 'save' and 'load')
+#' @param cntfile Expression quantity file (RData format: Use 'save' and 'load'). The count matrix is gene x cell.
+#' @param formula_string A regression formula to fit the non-zero-inflated counts
 #' @param nCores Number of cores
 #' @param seed Seed number
 #' @param adapt_delta The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)
-#' @param brms4zi Whether to run brms for zero-inflated models (default is to run rstan::sampling)
+#' @param brms4zi Whether to run brms for zero-inflated models (Deprecated)
 #' @param outfile Output file name to store ELPD_loo results (RDS format)
-#' @return A list of ELPD_loo results returned by loo::compare
+#' @return A list of ELPD_loo results and mean parameters returned by loo::compare
 #'
-run_model_comparison <- function(cntfile, nCores=NULL, seed=NULL, adapt_delta=0.8, brms4zi=FALSE, outfile=NULL) {
+run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed=NULL, adapt_delta=0.8, brms4zi=TRUE, outfile=NULL) {
 
   if(is.null(nCores)) {
     nCores <- parallel::detectCores()
@@ -18,27 +19,38 @@ run_model_comparison <- function(cntfile, nCores=NULL, seed=NULL, adapt_delta=0.
     seed <- 1004
   }
 
-  load(cntfile)  # This will load 'cntmat', 'gsurv', 'csize', and 'ctype'
+  load(cntfile)  # This will load 'cntmat', 'csize', and 'covar_list'
+
   gname <- rownames(cntmat)
-  num_genes <- length(gsurv)
+  num_genes <- dim(cntmat)[1]
   exposure <- log(csize)
+  covars <- names(covar_list)
+  if(is.null(formula_string)) {
+    cat(sprintf("Formulating the default additive model...\n"))
+    formula_string <- 'y ~ 1 + offset(exposure)'
+    if(length(covars) > 0) {
+      for (covar in covars) {
+        formula_string <- paste(formula_string, sprintf(' + (1|%s)', covar))
+      }
+    }
+  }
+  cat(sprintf("Formula: %s\n", formula_string))
 
   results <- list()
   for (gg in c(1:num_genes)) {
-    if(gsurv[gg]) {
-      y <- round(unlist(cntmat[gg,]))
-      cat(sprintf("\nFitting models for %s\n", gname[gg]))
-      tryCatch({
-        model_fit <- fit_count_models(y, exposure, ctype, nCores, seed, adapt_delta = adapt_delta, brms4zi=brms4zi)
-        elpd_loo <- compare_count_models(model_fit)
-        mean_par <- get_model_params(model_fit, ctyped=!is.null(ctype))
-        results[[gname[gg]]] <- list()
-        results[[gname[gg]]][['elpd_loo']] <- elpd_loo
-        results[[gname[gg]]][['mean_par']] <- mean_par
-      }, error = function(err) {
-        cat(sprintf("Error while fitting %s\n", gname[gg]))
-      })
-    }
+    y <- round(unlist(cntmat[gg,]))
+    gexpr <- data.frame(y, exposure, covar_list)
+    cat(sprintf("\nFitting models for %s\n", gname[gg]))
+    tryCatch({
+      model_fit <- fit_count_models(gexpr, as.formula(formula_string), nCores, seed, adapt_delta = adapt_delta, brms4zi=brms4zi)
+      elpd_loo <- compare_count_models(model_fit)
+      mean_par <- get_model_params(model_fit, covariate=covars)
+      results[[gname[gg]]] <- list()
+      results[[gname[gg]]][['elpd_loo']] <- elpd_loo
+      results[[gname[gg]]][['mean_par']] <- mean_par
+    }, error = function(err) {
+      cat(sprintf("Error while fitting %s\n", gname[gg]))
+    })
   }
 
   if(!is.null(outfile)) {

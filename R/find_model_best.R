@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Find representative genes for a given model
 #'
 #' @export
 #' @param fit_list A list of scRATE model fit results
@@ -10,7 +10,7 @@
 #' @return best_model_calls Genes that Best fits to a given model are also stored in the input loomfile
 #'
 find_model_best <- function(fit_list, model2find, margin=2, loomfile=NULL, attr_name=NULL, verbose=FALSE) {
-                                     
+
   gsurv <- names(fit_list)
 
   best_genes <- c()

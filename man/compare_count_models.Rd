@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare_count_models.R
 \name{compare_count_models}
 \alias{compare_count_models}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Compare models in respect to ELPD_loo}
 \usage{
 compare_count_models(model_fit)
 }
@@ -13,5 +13,5 @@ compare_count_models(model_fit)
 ELPD_loo result
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Compare models in respect to ELPD_loo
 }

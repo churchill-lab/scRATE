@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_model_best.R
 \name{is_model_best}
 \alias{is_model_best}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Checks if the gene best fits a certain model significantly better over all the other models}
 \usage{
 is_model_best(loo_result, model2check, margin = 2)
 }
@@ -17,5 +17,5 @@ is_model_best(loo_result, model2check, margin = 2)
 Whether a given gene best fits to the specified model (boolean)
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Checks if the gene best fits a certain model significantly better over all the other models
 }

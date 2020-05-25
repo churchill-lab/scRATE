@@ -2,10 +2,10 @@
 % Please edit documentation in R/prepare_job_array.R
 \name{prepare_job_array}
 \alias{prepare_job_array}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Divide the entire data into many chunks to "run_model_comparison" on a cluster in parallel}
 \usage{
-prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
-  covariate = NULL, nCores = NULL, seed = NULL, gene_start = NULL,
+prepare_job_array(loomfile, num_chunks, outdir, dryrun, covariate = c(),
+  layer = NULL, nCores = NULL, seed = NULL, gene_start = NULL,
   gene_end = NULL, chunk_start = NULL, chunk_end = NULL)
 }
 \arguments{
@@ -17,9 +17,9 @@ prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
 
 \item{dryrun}{TRUE if you only want to check the job submission commands.}
 
-\item{layer}{Layer name of the count to use in the loom file.}
-
 \item{covariate}{Name of covariate (A col.attrs name in the input loomfile.)}
+
+\item{layer}{A layer name of the count to use in the loom file.}
 
 \item{nCores}{Number of cores to run stan fitting in parallel}
 
@@ -37,5 +37,5 @@ prepare_job_array(loomfile, num_chunks, outdir, dryrun, layer = NULL,
 ... None is returned.
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Divide the entire data into many chunks to "run_model_comparison" on a cluster in parallel
 }

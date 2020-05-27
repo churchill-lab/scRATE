@@ -25,7 +25,7 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
   exposure <- log(csize)
   covars <- names(covar_list)
   if(is.null(formula_string)) {
-    cat(sprintf("Formulating the default additive model...\n"))
+    message(sprintf("Formulating the default additive model..."))
     formula_string <- 'y ~ 1 + offset(exposure)'
     if(length(covars) > 0) {
       for (covar in covars) {
@@ -33,22 +33,27 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
       }
     }
   }
-  cat(sprintf("Formula: %s\n", formula_string))
+  message(sprintf("Formula: %s", formula_string))
 
   results <- list()
   for (gg in c(1:num_genes)) {
     y <- round(unlist(cntmat[gg,]))
     gexpr <- data.frame(y, exposure, covar_list)
-    cat(sprintf("\nFitting models for %s\n", gname[gg]))
+    message(sprintf("\nFitting models for %s", gname[gg]))
     tryCatch({
       model_fit <- fit_count_models(gexpr, as.formula(formula_string), nCores, seed, adapt_delta = adapt_delta)
       elpd_loo <- compare_count_models(model_fit)
-      mean_par <- get_model_params(model_fit, covariate=covars)
+      tryCatch({
+        mean_par <- get_model_params(model_fit, covariate=covars)
+      }, error = function(err) {
+        message('Getting model parameters assuming the model does contain group-level effects.')
+        mean_par <- get_model_params(model_fit)
+      })
       results[[gname[gg]]] <- list()
       results[[gname[gg]]][['elpd_loo']] <- elpd_loo
       results[[gname[gg]]][['mean_par']] <- mean_par
     }, error = function(err) {
-      cat(sprintf("Error while fitting %s\n", gname[gg]))
+      message(sprintf("Error while fitting %s", gname[gg]))
     })
   }
 

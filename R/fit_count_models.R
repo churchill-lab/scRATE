@@ -30,8 +30,8 @@ fit_count_models <- function(gexpr, f, nCores=NULL, seed=NULL, adapt_delta=0.8, 
                                    seed = seed,
                                    refresh = 0)
     }, error = function(err) {
-      cat('stan_glmer did not work probably because no random effect terms were specified in the formula.')
-      cat('Running stan_glm instead. Please check your formula.')
+      message('stan_glmer did not work probably because no random effect terms were specified in the formula.')
+      message('Running stan_glm instead. Please check your formula.')
       fitting[["P"]] <-   stan_glm(f,
                                    family = poisson,
                                    data = gexpr,
@@ -51,8 +51,8 @@ fit_count_models <- function(gexpr, f, nCores=NULL, seed=NULL, adapt_delta=0.8, 
                                     seed = seed,
                                     refresh = 0)
     }, error = function(err) {
-      cat('stan_glmer did not work probably because no random effect terms were specified in the formula.')
-      cat('Running stan_glm instead. Please check your formula.')
+      message('stan_glmer did not work probably because no random effect terms were specified in the formula.')
+      message('Running stan_glm instead. Please check your formula.')
       fitting[["NB"]] <-   stan_glm(f,
                                     family = neg_binomial_2,
                                     data = gexpr,

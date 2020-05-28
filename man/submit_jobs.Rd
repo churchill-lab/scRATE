@@ -5,7 +5,7 @@
 \title{Bayesian model selection for scRNA-seq count data}
 \usage{
 submit_jobs(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
-  layer = NULL, model2fit_var = NULL, covariate = NULL,
+  layer = NULL, model2fit_var = NULL, covariates = NULL,
   nCores = NULL, seed = NULL, gene_start = NULL, gene_end = NULL,
   chunk_start = NULL, chunk_end = NULL)
 }
@@ -26,7 +26,7 @@ submit_jobs(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
 
 \item{model2fit_var}{Variable name containing the model to fit (A row.attrs name in the input loomfile)}
 
-\item{covariate}{Name of covariate (A col.attrs name in the input loomfile)}
+\item{covariates}{Name of covariates (A col.attrs name in the input loomfile)}
 
 \item{nCores}{Number of cores to run stan fitting in parallel}
 

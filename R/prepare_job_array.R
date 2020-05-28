@@ -5,7 +5,7 @@
 #' @param num_chunks Number of chunks.
 #' @param outdir Name of the folder where results should be stored.
 #' @param dryrun TRUE if you only want to check the job submission commands.
-#' @param covariate Name of covariate (A col.attrs name in the input loomfile.)
+#' @param covariates Name of covariates (A col.attrs name in the input loomfile.)
 #' @param layer A layer name of the count to use in the loom file.
 #' @param nCores Number of cores to run stan fitting in parallel
 #' @param seed Seed number to reproduce randomized results
@@ -16,7 +16,7 @@
 #' @return ... None is returned.
 #'
 prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
-                              covariate=c(), layer=NULL, nCores=NULL, seed=NULL,
+                              covariates=c(), layer=NULL, nCores=NULL, seed=NULL,
                               gene_start=NULL, gene_end=NULL, chunk_start=NULL, chunk_end=NULL) {
   if(is.null(nCores)) {
     nCores <- min(4, parallel::detectCores())
@@ -37,14 +37,15 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   num_genes <- dim(dmat)[2]
   gname <- ds$row.attrs$GeneID[]
   cname <- ds$col.attrs$CellID[]
-  covar_list <- list()
-  if(length(covariate) > 0) {
-    for (covar in covariate) {
+  if(length(covariates) > 0) {
+    covar_list <- list()
+    for (covar in covariates) {
       covar_list[[covar]] <- ds$col.attrs[[covar]][]
       message(sprintf('[prepare_job_array] %s is successfully loaded from the loom file.', covar))
     }
   } else {
-    message('[prepare_job_array] No covariate will be used.')
+    covar_list <- NULL
+    message('[prepare_job_array] No covariates will be used.')
   }
   selected <- ds$row.attrs$Selected[]
   ds$close_all()

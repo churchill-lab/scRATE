@@ -4,12 +4,12 @@
 \alias{get_model_params}
 \title{An internal function to re-organize stan_fit parameters}
 \usage{
-get_model_params(model_fit, covariate = NULL)
+get_model_params(model_fit, covariates = NULL)
 }
 \arguments{
 \item{model_fit}{A list of four model fits}
 
-\item{covariate}{A list of covariates if any}
+\item{covariates}{A list of covariates if any}
 }
 \value{
 A list of mean parameter values for each model

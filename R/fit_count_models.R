@@ -18,48 +18,45 @@ fit_count_models <- function(gexpr, f, nCores=NULL, seed=NULL, adapt_delta=0.8, 
     seed <- 1004
   }
 
+  covariates <- all.vars(f)[-c(1, 2)]
   fitting <- list()
 
   if(is.null(model2fit) || 1 %in% model2fit) {
     message('Fitting data with Poisson model...')
-    tryCatch({
-      fitting[["P"]] <- stan_glmer(f,
-                                   family = poisson,
-                                   data = gexpr,
-                                   cores = nCores,
-                                   seed = seed,
-                                   refresh = 0)
-    }, error = function(err) {
-      message('stan_glmer did not work probably because no random effect terms were specified in the formula.')
-      message('Running stan_glm instead. Please check your formula.')
+    if(identical(covariates, character(0))) {
       fitting[["P"]] <-   stan_glm(f,
                                    family = poisson,
                                    data = gexpr,
                                    cores = nCores,
                                    seed = seed,
                                    refresh = 0)
-    })
+    } else {
+      fitting[["P"]] <- stan_glmer(f,
+                                   family = poisson,
+                                   data = gexpr,
+                                   cores = nCores,
+                                   seed = seed,
+                                   refresh = 0)
+    }
   }
 
   if(is.null(model2fit) || 2 %in% model2fit) {
     message('Fitting data with Negative Binomial model...')
-    tryCatch({
-      fitting[["NB"]] <- stan_glmer(f,
-                                    family = neg_binomial_2,
-                                    data = gexpr,
-                                    cores = nCores,
-                                    seed = seed,
-                                    refresh = 0)
-    }, error = function(err) {
-      message('stan_glmer did not work probably because no random effect terms were specified in the formula.')
-      message('Running stan_glm instead. Please check your formula.')
+    if(identical(covariates, character(0))) {
       fitting[["NB"]] <-   stan_glm(f,
                                     family = neg_binomial_2,
                                     data = gexpr,
                                     cores = nCores,
                                     seed = seed,
                                     refresh = 0)
-    })
+    } else {
+      fitting[["NB"]] <- stan_glmer(f,
+                                    family = neg_binomial_2,
+                                    data = gexpr,
+                                    cores = nCores,
+                                    seed = seed,
+                                    refresh = 0)
+    }
   }
 
   if(is.null(model2fit) || 3 %in% model2fit) {

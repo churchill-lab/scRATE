@@ -4,7 +4,7 @@
 \alias{prepare_job_array}
 \title{Divide the entire data into many chunks to "run_model_comparison" on a cluster in parallel}
 \usage{
-prepare_job_array(loomfile, num_chunks, outdir, dryrun, covariate = c(),
+prepare_job_array(loomfile, num_chunks, outdir, dryrun, covariates = c(),
   layer = NULL, nCores = NULL, seed = NULL, gene_start = NULL,
   gene_end = NULL, chunk_start = NULL, chunk_end = NULL)
 }
@@ -17,7 +17,7 @@ prepare_job_array(loomfile, num_chunks, outdir, dryrun, covariate = c(),
 
 \item{dryrun}{TRUE if you only want to check the job submission commands.}
 
-\item{covariate}{Name of covariate (A col.attrs name in the input loomfile.)}
+\item{covariates}{Name of covariates (A col.attrs name in the input loomfile.)}
 
 \item{layer}{A layer name of the count to use in the loom file.}
 

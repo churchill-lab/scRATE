@@ -9,7 +9,7 @@
 #' @param rfile R script to execute
 #' @param layer Layer name of the count to use in the loom file
 #' @param model2fit_var Variable name containing the model to fit (A row.attrs name in the input loomfile)
-#' @param covariate Name of covariate (A col.attrs name in the input loomfile)
+#' @param covariates Name of covariates (A col.attrs name in the input loomfile)
 #' @param nCores Number of cores to run stan fitting in parallel
 #' @param seed Seed number to reproduce randomized results
 #' @param gene_start Starting gene index to analyze
@@ -19,7 +19,7 @@
 #' @return ... None is returned
 #'
 submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
-                        layer=NULL, model2fit_var=NULL, covariate=NULL, nCores=NULL, seed=NULL,
+                        layer=NULL, model2fit_var=NULL, covariates=NULL, nCores=NULL, seed=NULL,
                         gene_start=NULL, gene_end=NULL, chunk_start=NULL, chunk_end=NULL) {
   if(is.null(nCores)) {
     nCores <- min(4, parallel::detectCores())
@@ -48,12 +48,12 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
     modelID <- ds$row.attrs[[model2fit_var]][]
     cat(sprintf('[submit_jobs] Models specified in %s will be used for fitting.\n', model2fit_var))
   }
-  if(is.null(covariate)) {
+  if(is.null(covariates)) {
     ctype <- NULL
-    cat('[submit_jobs] No covariate will be used.\n')
+    cat('[submit_jobs] No covariates will be used.\n')
   } else {
-    ctype <- ds$col.attrs[[covariate]][]
-    cat(sprintf('[submit_jobs] %s will be used as a covariate.\n', covariate))
+    ctype <- ds$col.attrs[[covariates]][]
+    cat(sprintf('[submit_jobs] %s will be used as a covariate.\n', covariates))
   }
   ds$close_all()
 

@@ -2,14 +2,14 @@
 #'
 #' @export
 #' @param model_fit A list of four model fits
-#' @param covariate A list of covariates if any
+#' @param covariates A list of covariates if any
 #' @return A list of mean parameter values for each model
 #
-get_model_params <- function(model_fit, covariate=NULL) {
+get_model_params <- function(model_fit, covariates=NULL) {
 
   result <- list()
   models <- names(model_fit)
-  if(is.null(covariate)) {
+  if(is.null(covariates)) {
     if('P' %in% models) {
       result[['P']]    <- model_fit[['P']]$coefficients
     }
@@ -29,7 +29,7 @@ get_model_params <- function(model_fit, covariate=NULL) {
       result[['P']][['fixef']] <- fixef(model_fit[['P']])
       result[['P']][['ranef']] <- list()
       result[['P']][['coef']] <- list()
-      for (covar in covariate) {
+      for (covar in covariates) {
         result[['P']][['ranef']][[covar]] <- ranef(model_fit[['P']])[[covar]]
         result[['P']][['coef']][[covar]] <- coef(model_fit[['P']])[[covar]]
       }
@@ -40,7 +40,7 @@ get_model_params <- function(model_fit, covariate=NULL) {
       result[['NB']][['fixef']] <- fixef(model_fit[['NB']])
       result[['NB']][['ranef']] <- list()
       result[['NB']][['coef']] <- list()
-      for (covar in covariate) {
+      for (covar in covariates) {
         result[['NB']][['ranef']][[covar]] <- ranef(model_fit[['NB']])[[covar]]
         result[['NB']][['coef']][[covar]] <- coef(model_fit[['NB']])[[covar]]
       }
@@ -51,7 +51,7 @@ get_model_params <- function(model_fit, covariate=NULL) {
       result[['ZIP']][['random']] <- list()
       result[['ZIP']][['ranef']] <- list()
       result[['ZIP']][['coef']] <- list()
-      for (covar in covariate) {
+      for (covar in covariates) {
         result[['ZIP']][['random']][[covar]] <- summary(model_fit[['ZIP']])$random[[covar]]
         result[['ZIP']][['ranef']][[covar]] <- ranef(model_fit[['ZIP']])[[covar]][ , , 1]
         result[['ZIP']][['coef']][[covar]] <- coef(model_fit[['ZIP']])[[covar]][ , , 1]
@@ -64,7 +64,7 @@ get_model_params <- function(model_fit, covariate=NULL) {
       result[['ZINB']][['random']] <- list()
       result[['ZINB']][['ranef']] <- list()
       result[['ZINB']][['coef']] <- list()
-      for (covar in covariate) {
+      for (covar in covariates) {
         result[['ZINB']][['random']][[covar]] <- summary(model_fit[['ZINB']])$random[[covar]]
         result[['ZINB']][['ranef']][[covar]] <- ranef(model_fit[['ZINB']])[[covar]][ , , 1]
         result[['ZINB']][['coef']][[covar]] <- coef(model_fit[['ZINB']])[[covar]][ , , 1]

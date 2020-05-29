@@ -17,7 +17,7 @@ Installation of scRATE is simple, although it may take a while as it compiles rs
 ```
 ```
 ┌─┐┌─┐╦═╗╔═╗╔╦╗╔═╗
-└─┐│  ╠╦╝╠═╣ ║ ║╣ 
+└─┐│  ╠╦╝╠═╣ ║ ║╣
 └─┘└─┘╩╚═╩ ╩ ╩ ╚═╝
          Ver:0.1.0
 ```
@@ -36,11 +36,11 @@ Here is a quick example on how to use it. We first load `scRATE` and `loomR` pac
 > library(scRATE)
 > library(loomR)
 ```
-A data file in the example is available [here] (ftp://churchill-lab.jax.org/analysis/scRATE/DC-like_cells.loom).
+A data file in the example is available [here](ftp://churchill-lab.jax.org/analysis/scRATE/DC-like_cells.loom).
 
 ```r
 > ds <- connect('DC-like_cells.loom')
-> cntmat <- ds$matrix[,]
+> cntmat <- t(ds$matrix[,])
 > gsymb <- ds$row.attrs$GeneID[]
 > ds$close_all()
 > head(gsymb)
@@ -82,7 +82,7 @@ We recommend using offset (or exposure) in order to reflect the difference in de
 [185] 9.444859 9.419466 9.513773 8.690138 8.046229 7.375256
 ```
 
-We will pick a gene, *Cybb* (one that we know that it fits to ZINB model significantly better than the other models), and load its UMI counts into a data frame. We can also add covariates to the data.frame after `y` and `exposure`.
+We will pick a gene, *Cybb* (one that we know that it fits to ZINB model significantly better than the other models), and load its UMI counts into a data frame.
 
 ```r
 > gg <- 4153
@@ -92,7 +92,7 @@ We will pick a gene, *Cybb* (one that we know that it fits to ZINB model signifi
 [1] "Cybb"
 ```
 ```r
-> y <- cntmat[,gg]
+> y <- cntmat[gg,]
 > y
 ```
 ```
@@ -106,14 +106,20 @@ We will pick a gene, *Cybb* (one that we know that it fits to ZINB model signifi
 [176]  2  1  4  2  1  0  1  0  1  4  6  8  9  4  3
 ```
 ```r
-> gexpr <- data.frame(y, exposure)  # data.frame(y, exposure, celltype, sex)
+> gexpr <- data.frame(y, exposure)
+```
+We must use `y` and `exposure`. We can also add covariates to the data.frame after them.
+```r
+> gexpr <- data.frame(y, exposure, celltype, sex)
 ```
 
-We are ready to fit the models. We can specify our own model formula if there are covariates. Note that offsets are provided as a term.
-
-
+We are now ready to fit the models.
 ```r
-> model_fit <- fit_count_models(gexpr, as.formula('y ~ 1 + offset(exposure)'))
+> model_fit <- fit_count_models(gexpr)
+```
+Or we can specify our own model formula (See brms documentation) if there are covariates. Note we should not use `offset()` function in the formula.
+```r
+> model_fit <- fit_count_models(gexpr, 'y ~ 1 + (1|sex) + (1|celltype)')
 ```
 ```
 Fitting models for Cybb

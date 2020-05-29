@@ -4,13 +4,13 @@
 \alias{fit_count_models}
 \title{Fit a gene with regression models}
 \usage{
-fit_count_models(gexpr, f, nCores = NULL, seed = NULL,
-  adapt_delta = 0.8, model2fit = NULL)
+fit_count_models(gexpr, formula_string = NULL, nCores = NULL,
+  seed = NULL, adapt_delta = 0.8, model2fit = NULL)
 }
 \arguments{
-\item{gexpr}{A data frame that containes UMI count (y), log_exposure (exposure), and covariate values}
+\item{gexpr}{A data frame that containes UMI count (y), log_depth (exposure), and covariate values}
 
-\item{f}{A regression formula to fit the non-zero-inflated counts}
+\item{formula_string}{A regression formula to fit the non-zero-inflated counts (Note: Do not use 'offset()')}
 
 \item{nCores}{Number of cores}
 

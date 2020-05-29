@@ -18,46 +18,33 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
     seed <- 1004
   }
 
-  load(cntfile)  # This will load 'cntmat', 'csize', and 'covar_list'
+  # We assume 'cntfile' contains 'cntmat', 'csize', and 'covar_list' (See 'prepare_job_array' function)
+  load(cntfile)
 
   gname <- rownames(cntmat)
   num_genes <- dim(cntmat)[1]
   exposure <- log(csize)
-  if(is.null(formula_string)) {
-    message(sprintf("Formulating the default additive model..."))
-    formula_string <- 'y ~ 1 + offset(exposure)'
-    covars <- names(covar_list)
-    if(length(covars) > 0) {
-      for (covar in covars) {
-        formula_string <- paste(formula_string, sprintf(' + (1|%s)', covar))
-      }
-    }
-  }
-  message(sprintf("Formula: %s", formula_string))
-  f <- as.formula(formula_string)
-  covars2use <- all.vars(f)[-c(1, 2)]
-  if(identical(covars2use, character(0))) {
-    covars2use <- NULL
-  }
+  covars <- names(covar_list)
 
   results <- list()
   for (gg in c(1:num_genes)) {
     y <- round(unlist(cntmat[gg,]))
-    if(is.null(covars2use)) {
+    if(is.null(covars)) {
       gexpr <- data.frame(y, exposure)
     } else {
       gexpr <- data.frame(y, exposure, covar_list)
     }
-    message(sprintf("\nFitting models for %s", gname[gg]))
+    gsymb <- gname[gg]
+    message(sprintf("\nFitting models for %s", gsymb))
     tryCatch({
-      model_fit <- fit_count_models(gexpr, f, nCores, seed, adapt_delta = adapt_delta)
+      model_fit <- fit_count_models(gexpr, formula_string, nCores, seed, adapt_delta = adapt_delta)
       elpd_loo <- compare_count_models(model_fit)
-      mean_par <- get_model_params(model_fit, covariates=covars2use)
-      results[[gname[gg]]] <- list()
-      results[[gname[gg]]][['elpd_loo']] <- elpd_loo
-      results[[gname[gg]]][['mean_par']] <- mean_par
+      mean_par <- get_model_params(model_fit, covariates=covars)
+      results[[gsymb]] <- list()
+      results[[gsymb]][['elpd_loo']] <- elpd_loo
+      results[[gsymb]][['mean_par']] <- mean_par
     }, error = function(err) {
-      message(sprintf("Error while fitting %s", gname[gg]))
+      message(sprintf("Error while fitting %s", gsymb))
     })
   }
 

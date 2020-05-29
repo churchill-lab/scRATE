@@ -4,7 +4,6 @@ scRATE is a model selection-based scRNA-seq quantitation algorithm that controls
 
 
 * Free software: GPLv3 license
-* Documentation: under development
 
 
 ## Installation
@@ -36,7 +35,7 @@ Here is a quick example on how to use it. We first load `scRATE` and `loomR` pac
 > library(scRATE)
 > library(loomR)
 ```
-A data file in the example is available <a href=">here</a>.
+A data file in the example is available [here] (ftp://churchill-lab.jax.org/analysis/scRATE/DC-like_cells.loom).
 
 ```r
 > ds <- connect('DC-like_cells.loom')
@@ -78,7 +77,7 @@ We recommend using offset (or exposure) in order to reflect the difference in de
 [185] 9.444859 9.419466 9.513773 8.690138 8.046229 7.375256
 ```
 
-We will pick a gene (one that we know it best fits to ZINB model) and load its UMI counts across cells into a data frame.
+We will pick a gene (one that we know it best fits to ZINB model) and load its UMI counts into a data frame. We can also add covariates to the data.frame after `y` and `exposure`.
 
 ```r
 > gg <- 4153
@@ -102,7 +101,8 @@ We fit all four models. We can also add covariates to the data.frame and specify
 ```r
 > gexpr <- data.frame(y, exposure)  # data.frame(y, exposure, celltype, sex)
 > model_fit <- fit_count_models(gexpr, as.formula('y ~ 1 + offset(exposure)'))
-
+```
+```
 Fitting models for Cybb
 Fitting data with Poisson model...
 Fitting data with Negative Binomial model...
@@ -151,4 +151,4 @@ model1 -111.0      20.9
 
 ## How to cite
 
-K. Choi, Y. Chen, D.A. Skelly, G.A. Churchill. “Bayesian model selection reveals biological origins of zero inflation in single-cell transcriptomics.” bioRxiv. doi: <a href="https://doi.org/10.1101/2020.03.03.974808"></a> (2020)
+K. Choi, Y. Chen, D.A. Skelly, G.A. Churchill. “Bayesian model selection reveals biological origins of zero inflation in single-cell transcriptomics.” bioRxiv. doi: <https://doi.org/10.1101/2020.03.03.974808> (2020)

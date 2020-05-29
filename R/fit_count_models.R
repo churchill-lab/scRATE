@@ -18,14 +18,13 @@ fit_count_models <- function(gexpr, formula_string=NULL, nCores=NULL, seed=NULL,
     seed <- 1004
   }
 
+  # Automatically formulate a simple additive model using all the covariates in 'gexpr'
+  covariates <- names(gexpr)[-c(1, 2)]
   if(is.null(formula_string)) {
     message(sprintf("Formulating the default additive model..."))
-    covars <- names(gexpr)[-c(1, 2)]
     formula_string <- 'y ~ 1'
-    if(identical(covars, character(0))) {
-      covars <- NULL
-    } else {  # Automatically formulate a simple additive model using all the covariates in 'gexpr'
-      for (covar in covars) {
+    if(!identical(covariates, character(0))) {
+      for (covar in covariates) {
         formula_string <- paste(formula_string, sprintf(' + (1|%s)', covar))
       }
     }

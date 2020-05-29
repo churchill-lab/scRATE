@@ -36,7 +36,7 @@ Here is a quick example on how to use it. We first load `scRATE` and `loomR` pac
 > library(scRATE)
 > library(loomR)
 ```
-A data file in the example is available [here](ftp://churchill-lab.jax.org/analysis/scRATE/DC-like_cells.loom).
+A data file in the example is available at <ftp://churchill-lab.jax.org/analysis/scRATE/DC-like_cells.loom>.
 
 ```r
 > ds <- connect('DC-like_cells.loom')
@@ -106,11 +106,11 @@ We will pick a gene, *Cybb* (one that we know that it fits to ZINB model signifi
 [176]  2  1  4  2  1  0  1  0  1  4  6  8  9  4  3
 ```
 ```r
-> gexpr <- data.frame(y, exposure)
+> gexpr <- data.frame(y=y, exposure=exposure)
 ```
-We must use `y` and `exposure`. We can also add covariates to the data.frame after them.
+We must have `y` and `exposure` as variables. We can also append covariates to the data frame.
 ```r
-> gexpr <- data.frame(y, exposure, celltype, sex)
+> gexpr <- data.frame(y=y, exposure=exposure, celltype, sex)
 ```
 
 We are now ready to fit the models.

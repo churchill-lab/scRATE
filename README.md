@@ -42,13 +42,11 @@ A data file in the example is available [here] (ftp://churchill-lab.jax.org/anal
 > ds <- connect('DC-like_cells.loom')
 > cntmat <- ds$matrix[,]
 > gsymb <- ds$row.attrs$GeneID[]
+> ds$close_all()
 > head(gsymb)
 ```
 ```
 [1] "Xkr4"    "Gm1992"  "Gm37381" "Rp1"     "Rp1.1"   "Sox17"
-```
-```r
-> ds$close_all()
 ```
 
 We recommend using offset (or exposure) in order to reflect the difference in depth of coverage across cells while fitting the count models. The models we compare use log link function, and therefore, the offsets should be log transformed too.
@@ -84,7 +82,7 @@ We recommend using offset (or exposure) in order to reflect the difference in de
 [185] 9.444859 9.419466 9.513773 8.690138 8.046229 7.375256
 ```
 
-We will pick a gene (one that we know it best fits to ZINB model) and load its UMI counts into a data frame. We can also add covariates to the data.frame after `y` and `exposure`.
+We will pick a gene, *Cybb* (one that we know that it fits to ZINB model significantly better than the other models), and load its UMI counts into a data frame. We can also add covariates to the data.frame after `y` and `exposure`.
 
 ```r
 > gg <- 4153

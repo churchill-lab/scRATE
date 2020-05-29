@@ -43,7 +43,11 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
   results <- list()
   for (gg in c(1:num_genes)) {
     y <- round(unlist(cntmat[gg,]))
-    gexpr <- data.frame(y, exposure, covar_list)
+    if(is.null(covars2use)) {
+      gexpr <- data.frame(y, exposure)
+    } else {
+      gexpr <- data.frame(y, exposure, covar_list)
+    }
     message(sprintf("\nFitting models for %s", gname[gg]))
     tryCatch({
       model_fit <- fit_count_models(gexpr, f, nCores, seed, adapt_delta = adapt_delta)

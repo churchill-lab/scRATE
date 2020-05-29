@@ -94,7 +94,7 @@ We will pick a gene (one that we know it best fits to ZINB model) and load its U
 [1] "Cybb"
 ```
 ```r
-> y <- cntmat[gg,]
+> y <- cntmat[,gg]
 > y
 ```
 ```

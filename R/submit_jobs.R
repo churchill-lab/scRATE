@@ -40,7 +40,7 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
   num_genes <- dim(dmat)[2]
   gname <- ds$row.attrs$GeneID[]
   cname <- ds$col.attrs$CellID[]
-  selected <- ds$row.attrs$Selected[]
+  selected <- ds$row.attrs$Selected[] > 0
   if(is.null(model2fit_var)) {
     modelID <- NULL
     cat('[submit_jobs] No specific model is set for fitting.\n')

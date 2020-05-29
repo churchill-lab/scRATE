@@ -47,7 +47,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     covar_list <- NULL
     message('[prepare_job_array] No covariates will be used.')
   }
-  selected <- ds$row.attrs$Selected[]
+  selected <- ds$row.attrs$Selected[] > 0
   ds$close_all()
 
   if(is.null(gene_start)) {

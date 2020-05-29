@@ -14,7 +14,8 @@ Installation of scRATE is simple, although it may take a while as it compiles rs
 > devtools::install_github('churchill-lab/scRATE')
 > library(scRATE)
 > version()
-
+```
+```
 ┌─┐┌─┐╦═╗╔═╗╔╦╗╔═╗
 └─┐│  ╠╦╝╠═╣ ║ ║╣ 
 └─┘└─┘╩╚═╩ ╩ ╩ ╚═╝
@@ -42,7 +43,11 @@ A data file in the example is available [here] (ftp://churchill-lab.jax.org/anal
 > cntmat <- ds$matrix[,]
 > gsymb <- ds$row.attrs$GeneID[]
 > head(gsymb)
+```
+```
 [1] "Xkr4"    "Gm1992"  "Gm37381" "Rp1"     "Rp1.1"   "Sox17"
+```
+```r
 > ds$close_all()
 ```
 
@@ -51,6 +56,8 @@ We recommend using offset (or exposure) in order to reflect the difference in de
 ```r
 > exposure <- log(colSums(cntmat))
 > exposure
+```
+```
   [1] 8.815518 8.996157 9.025816 9.037771 9.062420 9.397732 8.999249 9.445412
   [9] 7.826443 9.511851 9.501367 9.132271 8.768263 9.600015 9.250042 8.235626
  [17] 9.326255 8.101678 8.439232 8.723719 9.858804 9.205830 8.708309 8.266164
@@ -82,9 +89,15 @@ We will pick a gene (one that we know it best fits to ZINB model) and load its U
 ```r
 > gg <- 4153
 > gsymb[gg]
+```
+```
 [1] "Cybb"
+```
+```r
 > y <- cntmat[gg,]
 > y
+```
+```
   [1]  1  0  8  7  3  6  7  1  4  0  0  2  2 10  0  3  1  1  2  4  6  3  9  3  1
  [26]  4  1  2  3  8  0  0  1  6  2  6  3  0  0  1  0  4  1  3  0  2 17  1  2  5
  [51]  0  1  1  0  6  3  4  4  3  1  3  1  7  8  0  2  4  6  2  7  0  4  0  1  0
@@ -139,12 +152,15 @@ Then we compare the models with the leave-one-out cross validation test, and sel
 ```r
 > elpd_loo <- compare_count_models(model_fit)
 > elpd_loo
+```
+```
        elpd_diff se_diff
 model4    0.0       0.0
 model2  -10.0       4.5
 model3  -34.9       9.2
 model1 -111.0      20.9
-
+```
+```r
 > select_model(elpd_loo, margin=2)
 [1] 4
 ```

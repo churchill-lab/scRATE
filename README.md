@@ -107,12 +107,14 @@ We will pick a gene (one that we know it best fits to ZINB model) and load its U
 [151]  7  0  1 10  4  1  4  5  1  0  1  3  3  0  5  4  9  4  2  0  4  1  2  4  1
 [176]  2  1  4  2  1  0  1  0  1  4  6  8  9  4  3
 ```
+```r
+> gexpr <- data.frame(y, exposure)  # data.frame(y, exposure, celltype, sex)
+```
 
-We fit all four models. We can also add covariates to the data.frame and specify our own model formula.
+We are ready to fit the models. We can specify our own model formula if there are covariates. Note that offsets are provided as a term.
 
 
 ```r
-> gexpr <- data.frame(y, exposure)  # data.frame(y, exposure, celltype, sex)
 > model_fit <- fit_count_models(gexpr, as.formula('y ~ 1 + offset(exposure)'))
 ```
 ```

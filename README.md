@@ -7,7 +7,7 @@ scRATE is a model selection-based scRNA-seq quantitation algorithm that controls
 * Documentation: under development
 
 
-##Installation
+## Installation
 
 Installation of scRATE is simple, although it may take a while as it compiles rstan and the related packages.
 
@@ -28,7 +28,7 @@ This might hick up because of hdf5r or loomR. Then, try the following.
 > devtools::install_github(repo = "mojaveazure/loomR", ref = "develop")
 ```
 
-##Quick Start
+## Quick Start
 
 Here is a quick example on how to use it. We first load `scRATE` and `loomR` package. We use loom format files to store single-cell gene expression data as it is supported in both `R` and `python`. In `scRATE`, we also provide handy features that facilitate the handling of model selection results with loom format file.
 
@@ -149,6 +149,6 @@ model1 -111.0      20.9
 [1] 4
 ```
 
-##How to cite
+## How to cite
 
 K. Choi, Y. Chen, D.A. Skelly, G.A. Churchill. “Bayesian model selection reveals biological origins of zero inflation in single-cell transcriptomics.” bioRxiv. doi: <a href="https://doi.org/10.1101/2020.03.03.974808"></a> (2020)

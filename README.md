@@ -8,7 +8,7 @@ scRATE is a model selection-based scRNA-seq quantitation algorithm that controls
 
 ## Installation
 
-Installation of scRATE is simple, although it may take a while as it compiles rstan and the related packages.
+Installation of scRATE is simple, although it may take a while as it has to compile rstan, the related packages, and all their dependencies.
 
 ```r
 > devtools::install_github('churchill-lab/scRATE')
@@ -16,10 +16,10 @@ Installation of scRATE is simple, although it may take a while as it compiles rs
 > version()
 ```
 ```
-┌─┐┌─┐╦═╗╔═╗╔╦╗╔═╗
-└─┐│  ╠╦╝╠═╣ ║ ║╣
-└─┘└─┘╩╚═╩ ╩ ╩ ╚═╝
-         Ver:0.1.0
+____ ____ ____ ____ ___ ____
+[__  |    |__/ |__|  |  |___
+___] |___ |  \ |  |  |  |___
+                   Ver:0.1.1
 ```
 
 This might hick up because of hdf5r or loomR. Then, try the following.

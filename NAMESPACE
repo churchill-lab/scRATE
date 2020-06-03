@@ -2,6 +2,7 @@
 
 export(collate_results)
 export(compare_count_models)
+export(create_loom)
 export(find_model_best)
 export(fit_count_models)
 export(get_model_fit)

@@ -9,7 +9,7 @@
 #' @param outfile Output file name to store ELPD_loo results (RDS format)
 #' @return A list of ELPD_loo results and mean parameters returned by loo::compare
 #'
-run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed=NULL, adapt_delta=0.8, outfile=NULL) {
+run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed=NULL, adapt_delta=0.8, model2fit=NULL, outfile=NULL) {
 
   if(is.null(nCores)) {
     nCores <- parallel::detectCores()
@@ -37,7 +37,7 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
     gsymb <- gname[gg]
     message(sprintf("\nFitting models for %s", gsymb))
     tryCatch({
-      model_fit <- fit_count_models(gexpr, formula_string, nCores, seed, adapt_delta = adapt_delta)
+      model_fit <- fit_count_models(gexpr, formula_string, nCores, seed, adapt_delta = adapt_delta, model2fit = model2fit)
       elpd_loo <- compare_count_models(model_fit)
       mean_par <- get_model_params(model_fit, covariates=covars)
       results[[gsymb]] <- list()

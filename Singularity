@@ -44,17 +44,18 @@ From: ubuntu:16.04
         r-base-html=${R_VERSION}* \
         r-doc-html=${R_VERSION}* \
         r-cran-devtools \
-        r-cran-rstan \
-        r-cran-rstanarm \
+        r-cran-rcpp \
+        r-cran-rcppparallel \
         r-cran-bh \
-        r-cran-brms
+        r-cran-rstan
     apt-get clean
 
+    Rscript -e "devtools::install_version('rstantools', version = '2.0.0', repos = 'http://cran.us.r-project.org')"
     Rscript -e "install.packages('rstanarm')"
-    Rscript -e "devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")""
+    Rscript -e "install.packages('brms')"
     Rscript -e "install.packages('hdf5r')"
     Rscript -e "devtools::install_github('mojaveazure/loomR', ref='develop')"
-    Rscript -e "devtools::install_github('churchill-lab/scRATE', dep=FALSE)"
+    Rscript -e "devtools::install_github('churchill-lab/scRATE', dep=FALSE, build_vignettes=TRUE)"
 
     rm -rf /var/lib/apt/lists/*
 

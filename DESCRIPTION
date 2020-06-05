@@ -1,10 +1,10 @@
 Package: scRATE
 Type: Package
-Title: A scRNA-seq quantification toolkit based on Bayesian model selection
-Version: 0.1.0
+Title: A Bayesian model selection approach to test zero inflation from scRNA-seq data
+Version: 0.1.1
 Author: Kwangbom "KB" Choi, Ph.D.
 Maintainer: Kwangbom "KB" Choi, Ph.D. <kb.choi@jax.org>
-Description: Estimate gene expression rate using the best model to which count data conforms.
+Description: Estimate gene expression rate using four models (P, NB, ZIP, & ZINB)
     Performs model selection based on posterior predictive checks.
 License: MIT
 Encoding: UTF-8

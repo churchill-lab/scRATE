@@ -4,10 +4,10 @@
 \alias{submit_jobs}
 \title{Bayesian model selection for scRNA-seq count data}
 \usage{
-submit_jobs(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
-  layer = NULL, model2fit_var = NULL, covariates = NULL,
-  nCores = NULL, seed = NULL, gene_start = NULL, gene_end = NULL,
-  chunk_start = NULL, chunk_end = NULL)
+submit_jobs(loomfile, num_chunks, outdir, dryrun, rfile, scriptfile,
+  covariates = c(), layer = NULL, nCores = NULL, seed = NULL,
+  gene_start = NULL, gene_end = NULL, chunk_start = NULL,
+  chunk_end = NULL)
 }
 \arguments{
 \item{loomfile}{Expression quantity file (loom format)}
@@ -18,15 +18,13 @@ submit_jobs(loomfile, num_chunks, outdir, dryrun, scriptfile, rfile,
 
 \item{dryrun}{TRUE if you only want to check the job submission commands}
 
-\item{scriptfile}{PBS job submission script}
-
 \item{rfile}{R script to execute}
 
-\item{layer}{Layer name of the count to use in the loom file}
-
-\item{model2fit_var}{Variable name containing the model to fit (A row.attrs name in the input loomfile)}
+\item{scriptfile}{PBS job submission script}
 
 \item{covariates}{Name of covariates (A col.attrs name in the input loomfile)}
+
+\item{layer}{Layer name of the count to use in the loom file}
 
 \item{nCores}{Number of cores to run stan fitting in parallel}
 

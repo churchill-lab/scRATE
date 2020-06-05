@@ -45,12 +45,13 @@ From: ubuntu:16.04
         r-doc-html=${R_VERSION}* \
         r-cran-devtools \
         r-cran-rstan \
-        r-cran-rstantools \
+        r-cran-rstanarm \
         r-cran-bh \
         r-cran-brms
     apt-get clean
 
     Rscript -e "install.packages('rstanarm')"
+    Rscript -e "devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")""
     Rscript -e "install.packages('hdf5r')"
     Rscript -e "devtools::install_github('mojaveazure/loomR', ref='develop')"
     Rscript -e "devtools::install_github('churchill-lab/scRATE', dep=FALSE)"

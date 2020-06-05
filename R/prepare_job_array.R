@@ -28,10 +28,10 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   ds <- connect(loomfile, mode = 'r+')
   if(is.null(layer)) {
     dmat <- ds$matrix[,]
-    message('[prepare_job_array] Counts from main layer will be loaded.')
+    message('[scRATE::prepare_job_array] Counts from main layer will be loaded.')
   } else {
     dmat <- ds$layers[[layer]][,]
-    message(sprintf('[prepare_job_array] Counts from %s layer will be loaded.', layer))
+    message(sprintf('[scRATE::prepare_job_array] Counts from %s layer will be loaded.', layer))
   }
   num_cells <- dim(dmat)[1]
   num_genes <- dim(dmat)[2]
@@ -41,11 +41,11 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     covar_list <- list()
     for (covar in covariates) {
       covar_list[[covar]] <- ds$col.attrs[[covar]][]
-      message(sprintf('[prepare_job_array] %s is successfully loaded from the loom file.', covar))
+      message(sprintf('[scRATE::prepare_job_array] %s is successfully loaded from the loom file.', covar))
     }
   } else {
     covar_list <- NULL
-    message('[prepare_job_array] No covariates will be used.')
+    message('[scRATE::prepare_job_array] No covariates will be used.')
   }
   selected <- ds$row.attrs$Selected[] > 0
   ds$close_all()
@@ -64,7 +64,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
   idx_gsurv <- which(selected > 0)
   idx_gsurv <- idx_gsurv[idx_gsurv >= gidx1 & idx_gsurv <= gidx2]
   num_gsurv <- length(idx_gsurv)
-  message(sprintf('[prepare_job_array] %d genes (between Gene %d and %d) will be processed.', num_gsurv, gidx1, gidx2))
+  message(sprintf('[scRATE::prepare_job_array] %d genes (between Gene %d and %d) will be processed.', num_gsurv, gidx1, gidx2))
 
   if(num_chunks >= num_gsurv) {
     chunk_sz <- 1
@@ -94,11 +94,11 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     cidx2 <- chunk_end
     if (chunk_end > num_chunks) {
       cidx2 <- num_chunks
-      message(sprintf("[prepare_job_array] There are %d chunks only, but you requested more up to %d. The last chunk index is modified accordingly.",
+      message(sprintf("[scRATE::prepare_job_array] There are %d chunks only, but you requested more up to %d. The last chunk index is modified accordingly.",
                   num_chunks, chunk_end))
     }
   }
-  message(sprintf('[prepare_job_array] Chunk %d to %d (out of %d) will be created.', cidx1, cidx2, num_chunks))
+  message(sprintf('[scRATE::prepare_job_array] Chunk %d to %d (out of %d) will be created.', cidx1, cidx2, num_chunks))
 
   if(!dryrun) {
     for (k in cidx1:cidx2) {
@@ -109,7 +109,7 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
       cntmat <- dmat[s:e,][gsurv, ]
       outfile <- file.path(outdir, sprintf('_chunk.%05d', k))
       save(cntmat, csize, covar_list, file = outfile)
-      message(sprintf("[prepare_job_array] Created input file: %s", outfile))
+      message(sprintf("[scRATE::prepare_job_array] Created input file: %s", outfile))
     }
     sh_file_slurm <- file.path(outdir, 'run_subjobs.sh.slurm')
     cat('#!/bin/bash\n', file=sh_file_slurm)
@@ -142,11 +142,11 @@ prepare_job_array <- function(loomfile, num_chunks, outdir, dryrun,
     cat('ARRAY_ID=`printf %05d $PBS_ARRAYID`\n', file=sh_file_pbs, append=TRUE)
     cat('Rscript ${RFILE} _chunk.${ARRAY_ID} _scrate.${ARRAY_ID} ${CORES} ${SEED}\n', file=sh_file_pbs, append=TRUE)
     Sys.chmod(sh_file_pbs, '0755')
-    message(sprintf("[prepare_job_array] Generated bash script, %s, for submitting array jobs. Modify the file if needed.", sh_file_pbs))
+    message(sprintf("[scRATE::prepare_job_array] Generated bash script, %s, for submitting array jobs. Modify the file if needed.", sh_file_pbs))
   } else {
     for (k in cidx1:cidx2) {
       outfile <- file.path(outdir, sprintf('_chunk.%05d', k))
-      message(sprintf("[prepare_job_array::dryrun] Will created input file: %s", outfile))
+      message(sprintf("[scRATE::prepare_job_array::dryrun] Will created input file: %s", outfile))
     }
   }
 }

@@ -5,7 +5,7 @@
 \title{Fit regression models for many genes}
 \usage{
 run_model_comparison(cntfile, formula_string = NULL, nCores = NULL,
-  seed = NULL, adapt_delta = 0.8, outfile = NULL)
+  seed = NULL, adapt_delta = 0.8, model2fit = NULL, outfile = NULL)
 }
 \arguments{
 \item{cntfile}{Expression quantity file (RData format: Use 'save' and 'load'). The count matrix is gene x cell.}

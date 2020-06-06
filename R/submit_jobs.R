@@ -1,4 +1,4 @@
-#' Bayesian model selection for scRNA-seq count data
+#' Divide the entire data into many chunks submit "run_model_comparison" jobs on a pbs/torque cluster
 #'
 #' @export
 #' @param loomfile Expression quantity file (loom format)

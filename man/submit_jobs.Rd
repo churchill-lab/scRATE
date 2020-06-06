@@ -2,7 +2,7 @@
 % Please edit documentation in R/submit_jobs.R
 \name{submit_jobs}
 \alias{submit_jobs}
-\title{Bayesian model selection for scRNA-seq count data}
+\title{Divide the entire data into many chunks submit "run_model_comparison" jobs on a pbs/torque cluster}
 \usage{
 submit_jobs(loomfile, num_chunks, outdir, dryrun, rfile, scriptfile,
   covariates = c(), layer = NULL, nCores = NULL, seed = NULL,
@@ -42,5 +42,5 @@ submit_jobs(loomfile, num_chunks, outdir, dryrun, rfile, scriptfile,
 ... None is returned
 }
 \description{
-Bayesian model selection for scRNA-seq count data
+Divide the entire data into many chunks submit "run_model_comparison" jobs on a pbs/torque cluster
 }

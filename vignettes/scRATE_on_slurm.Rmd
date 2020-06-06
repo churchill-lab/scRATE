@@ -19,14 +19,14 @@ knitr::opts_chunk$set(
 Evaluation or comparison of Bayesian models over tens of thousands of data points (cells) would be useful but very time consuming. The true utility of *scRATE* lies in its functions that facilitate the throughput on a cluster computing resource and enable the model selection across entire data set, typically containing thousands of genes. For this you will have to first pull singularity (or docker) container:
 
 ```{bash eval=FALSE}
-$ singularity pull shub://singularityhub/scRATE
+$ singularity pull --name scRATE.sif shub://churchill-lab/scRATE
 ```
 
 You can launch a shell with the singularity container followed by an R session on an interactive session:
 
 ```{bash eval=FALSE}
-$ singularity shell scRATE_latest.sif
-$ R
+$ singularity shell scRATE.sif
+Singularity scRATE.sif:~> R
 ```
 
 Once an R session launches,

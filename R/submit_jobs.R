@@ -113,7 +113,7 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, rfile, scriptfile,
     cmdstr <- sprintf('qsub -o %s -e %s -v RFILE=%s,INFILE=%s,OUTFILE=%s,CORES=%d,SEED=%d %s',
                       outdir, outdir, rfile, ifile, ofile, nCores, seed, scriptfile)
     if(!dryrun) {
-      save(cntmat, csize, covar_list, file = outfile)
+      save(cntmat, csize, covar_list, file = ofile)
       message(sprintf("[scRATE::submit_jobs] Created input file: %s", ifile))
       message(sprintf("[scRATE::submit_jobs] %s", cmdstr))
       system(cmdstr)

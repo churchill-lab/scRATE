@@ -103,16 +103,15 @@ submit_jobs <- function(loomfile, num_chunks, outdir, dryrun, rfile, scriptfile,
   message(sprintf('[scRATE::submit_jobs] Chunk %d to %d (out of %d) will be processed.', cidx1, cidx2, num_chunks))
 
   for (k in cidx1:cidx2) {
-    s <- gene_starts[k]
-    e <- gene_ends[k]
-    gsurv  <- selected[s:e]
-    cntmat <- dmat[s:e,][gsurv, ]
-
     ifile <- file.path(outdir, sprintf('_chunk.%05d', k))
     ofile <- file.path(outdir, sprintf('_scrate.%05d', k))
     cmdstr <- sprintf('qsub -o %s -e %s -v RFILE=%s,INFILE=%s,OUTFILE=%s,CORES=%d,SEED=%d %s',
                       outdir, outdir, rfile, ifile, ofile, nCores, seed, scriptfile)
     if(!dryrun) {
+      s <- gene_starts[k]
+      e <- gene_ends[k]
+      gsurv  <- selected[s:e]
+      cntmat <- dmat[s:e,][gsurv, ]
       save(cntmat, csize, covar_list, file = ifile)
       message(sprintf("[scRATE::submit_jobs] Created input file: %s", ifile))
       message(sprintf("[scRATE::submit_jobs] Submitting a job: %s", cmdstr))

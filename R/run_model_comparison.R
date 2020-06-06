@@ -43,13 +43,18 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
       results[[gsymb]] <- list()
       results[[gsymb]][['elpd_loo']] <- elpd_loo
       results[[gsymb]][['mean_par']] <- mean_par
+      if(!is.null(outfile)) {
+        if(file.exists(outfile)) {
+          reslist <- readRDS(outfile)
+          reslilst[[gsymb]] <-results[[gsymb]]
+          saveRDS(reslist, file = outfile)
+        } else {
+          saveRDS(results, file = outfile)
+        }
+      }
     }, error = function(err) {
       message(sprintf("Error while fitting %s", gsymb))
     })
-  }
-
-  if(!is.null(outfile)) {
-    saveRDS(results, file = outfile)
   }
 
   return(results)

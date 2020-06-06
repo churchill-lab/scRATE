@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_model_fit.R
 \name{get_model_fit}
 \alias{get_model_fit}
-\title{Fit regression models for many genes and save it}
+\title{Fit regression models for many genes and save the fitting objects}
 \usage{
 get_model_fit(cntfile, formula_string = NULL, model2fit = NULL,
   nCores = NULL, seed = NULL, outfile = NULL)
@@ -11,6 +11,8 @@ get_model_fit(cntfile, formula_string = NULL, model2fit = NULL,
 \item{cntfile}{Expression quantity file (RData format: Use 'save' and 'load')}
 
 \item{formula_string}{A regression formula to fit the non-zero-inflated counts}
+
+\item{model2fit}{A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)}
 
 \item{nCores}{Number of cores}
 
@@ -22,5 +24,5 @@ get_model_fit(cntfile, formula_string = NULL, model2fit = NULL,
 A list of model fits (only available when outfile is not specified)
 }
 \description{
-Fit regression models for many genes and save it
+Fit regression models for many genes and save the fitting objects
 }

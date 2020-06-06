@@ -6,6 +6,7 @@
 #' @param nCores Number of cores
 #' @param seed Seed number
 #' @param adapt_delta The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)
+#' @param model2fit A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)
 #' @param outfile Output file name to store ELPD_loo results (RDS format)
 #' @return A list of ELPD_loo results and mean parameters returned by loo::compare
 #'
@@ -57,6 +58,8 @@ run_model_comparison <- function(cntfile, formula_string=NULL, nCores=NULL, seed
     })
   }
 
-  return(results)
+  if(is.null(outfile)) {
+    return(results)
+  }
 
 }

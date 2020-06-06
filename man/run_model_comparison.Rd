@@ -18,6 +18,8 @@ run_model_comparison(cntfile, formula_string = NULL, nCores = NULL,
 
 \item{adapt_delta}{The target average proposal acceptance probability during Stan’s adaptation period (default:0.8)}
 
+\item{model2fit}{A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)}
+
 \item{outfile}{Output file name to store ELPD_loo results (RDS format)}
 }
 \value{

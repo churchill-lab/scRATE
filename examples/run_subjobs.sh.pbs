@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=4
+#PBS -l mem=16gb
+#PBS -l walltime=23:59:59
+#PBS -t 1-6
+
+cd $PBS_O_WORKDIR
+
+# Add environment modules for your R here, for example ...
+module load hdf5/1.8.14
+module load R/3.5.1
+
+# Run your R script that uses scRATE library
+ARRAY_ID=`printf %05d $PBS_ARRAYID`
+Rscript ${RFILE} _chunk.${ARRAY_ID} _scrate.${ARRAY_ID} ${CORES} ${SEED}

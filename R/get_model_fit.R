@@ -1,8 +1,9 @@
-#' Fit regression models for many genes and save it
+#' Fit regression models for many genes and save the fitting objects
 #'
 #' @export
 #' @param cntfile Expression quantity file (RData format: Use 'save' and 'load')
 #' @param formula_string A regression formula to fit the non-zero-inflated counts
+#' @param model2fit A specific model to fit (1:P, 2:NB, 3:ZIP, 4:ZINB, NULL:All)
 #' @param nCores Number of cores
 #' @param seed Seed number
 #' @param outfile Output file name to store ELPD_loo results (RDS format)
@@ -17,37 +18,42 @@ get_model_fit <- function(cntfile, formula_string=NULL, model2fit=NULL, nCores=N
     seed <- 1004
   }
 
-  load(cntfile)  # This will load 'cntmat', 'csize', 'covar_list', and 'model2fit'
+  # We assume 'cntfile' contains 'cntmat', 'csize', 'covar_list', and model2fit (See 'prepare_job_array' function)
+  load(cntfile)
 
   gname <- rownames(cntmat)
   num_genes <- dim(cntmat)[1]
   exposure <- log(csize)
   covars <- names(covar_list)
-  if(is.null(formula_string)) {
-    cat(sprintf("Formulating the default additive model...\n"))
-    formula_string <- 'y ~ 1 + offset(exposure)'
-    for (covar in covars) {
-      formula_string <- paste(formula_string, sprintf(' + (1|%s)', covar))
-    }
-  }
-  cat(sprintf("Formula: %s\n", formula_string))
 
   results <- list()
   for (gg in c(1:num_genes)) {
     y <- round(unlist(cntmat[gg,]))
-    gexpr <- data.frame(y, exposure, covar_list)
-    cat(sprintf("\nFitting models for %s\n", gname[gg]))
+    if(is.null(covars)) {
+      gexpr <- data.frame(y, exposure)
+    } else {
+      gexpr <- data.frame(y, exposure, covar_list)
+    }
+    gsymb <- gname[gg]
+    message(sprintf("\nFitting models for %s", gsymb))
     tryCatch({
-      results[[gname[gg]]] <- fit_count_models(gexpr, as.formula(formula_string), nCores, seed, adapt_delta=adapt_delta, model2fit=model2fit)
+      results[[gsymb]] <- fit_count_models(gexpr, formula_string, nCores, seed, adapt_delta = adapt_delta, model2fit = model2fit)
+      if(!is.null(outfile)) {
+        if(file.exists(outfile)) {
+          reslist <- readRDS(outfile)
+          reslilst[[gsymb]] <-results[[gsymb]]
+          saveRDS(reslist, file = outfile)
+        } else {
+          saveRDS(results, file = outfile)
+        }
+      }
     }, error = function(err) {
-      cat(sprintf("Error while fitting %s\n", gname[gg]))
+      message(sprintf("Error while fitting %s", gsymb))
     })
   }
 
   if(is.null(outfile)) {
     return(results)
-  } else {
-    saveRDS(results, file = outfile)
   }
 
 }

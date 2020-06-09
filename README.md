@@ -1,6 +1,6 @@
 [![https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg](https://www.singularity-hub.org/static/img/hosted-singularity--hub-%23e32929.svg)](https://singularity-hub.org/collections/4398)
 
-![https://hub.docker.com/r/kbchoi/scrate](https://img.shields.io/docker/cloud/automated/kbchoi/scrate)
+[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kbchoi/scrate)](https://hub.docker.com/r/kbchoi/scrate)
 
 # scRATE
 

@@ -2,6 +2,7 @@
 
 [![](https://images.microbadger.com/badges/version/kbchoi/scrate.svg)](http://microbadger.com/images/kbchoi/scrate “Get your own version badge on microbadger.com”)
 
+![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/kbchoi/scrate?style=plastic)
 
 # scRATE
 

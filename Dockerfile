@@ -80,8 +80,10 @@ RUN apt-get update \
 	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN R --slave -e 'devtools::install_github("mojaveazure/loomR")'
+RUN R --slave -e 'install.packages("rstanarm")'
 RUN R --slave -e 'devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")'
+RUN R --slave -e 'install.packages("brms")'
+RUN R --slave -e 'devtools::install_github("mojaveazure/loomR")'
 RUN R --slave -e 'devtools::install_github("churchill-lab/scRATE", dep = FALSE, build_vignettes = TRUE)'
 
 #ENV TINI_VERSION v0.18.0

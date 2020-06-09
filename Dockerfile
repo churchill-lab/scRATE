@@ -4,7 +4,8 @@
 FROM debian:testing
 
 LABEL org.label-schema.license="GPLv3.0" \
-      maintainer="Kwangbom (KB) Choi, Ph.D. <kb.choi@jax.org>"
+      maintainer="Kwangbom (KB) Choi, Ph.D. <kb.choi@jax.org>" \
+      version="0.1.1"
 
 ## Set a default user. Available via runtime flag `--user docker`
 ## Add user to 'staff' group, granting them write privileges to /usr/local/lib/R/site.library
@@ -80,7 +81,6 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN R --slave -e 'devtools::install_github("mojaveazure/loomR")'
-RUN R --slave -e 'remove.packages("rstantools")'
 RUN R --slave -e 'devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")'
 RUN R --slave -e 'devtools::install_github("churchill-lab/scRATE", dep = FALSE, build_vignettes = TRUE)'
 

@@ -23,15 +23,15 @@ RUN apt-get update \
 		wget \
 		ca-certificates \
 		fonts-texgyre \
-        gcc-9-base \
-        gcc \
-        g++ \
-        build-essential \
-        libhdf5-dev \
-        libssl-dev \
-        libcurl4-openssl-dev \
-        libxml2-dev \
-    && apt-get clean \
+    gcc-9-base \
+    gcc \
+    g++ \
+    build-essential \
+    libhdf5-dev \
+    libssl-dev \
+    libcurl4-openssl-dev \
+    libxml2-dev \
+  && apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
 ## Configure default locale, see https://github.com/rocker-org/rocker/issues/19
@@ -80,7 +80,8 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN R --slave -e 'devtools::install_github("mojaveazure/loomR")'
-
+RUN R --slave -e 'remove.packages("rstantools")'
+RUN R --slave -e 'devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")'
 RUN R --slave -e 'devtools::install_github("churchill-lab/scRATE", dep = FALSE, build_vignettes = TRUE)'
 
 #ENV TINI_VERSION v0.18.0

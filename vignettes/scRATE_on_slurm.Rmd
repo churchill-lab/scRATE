@@ -28,7 +28,25 @@ You can launch a shell with the singularity container followed by an R session o
 $ singularity shell scRATE.sif
 Singularity scRATE.sif:~> R
 ```
+```
+R version 3.6.3 (2020-02-29) -- "Holding the Windsock"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+>
+```
 Once an R session launches,
 
 ```{r eval=FALSE}
@@ -55,6 +73,7 @@ The following objects are masked from 'package:rstanarm':
 
     dirichlet, exponential, get_y, lasso, loo_R2, ngrps
 ```
+To use scRATE's cluster computing support, UMI count matrix (gene x cell) and some minimal meta-data should be encoded in loom file format (See `scRATE::create_loom` function). We use loom format files since it is supported in both `R` and `python` and take only the best of two worlds downstream. In `scRATE`, we also provide handy features for processing model selection results and store them in the same loom file.
 
 ```{r eval=FALSE}
 library(loomR)
@@ -63,7 +82,7 @@ library(loomR)
 Loading required package: R6
 Loading required package: hdf5r
 ```
-To use scRATE's cluster computing support, UMI count matrix (gene x cell) and some minimal meta-data should be encoded in loom file format (See `scRATE::create_loom` function). We use loom format files since it is supported in both `R` and `python`. In `scRATE`, we also provide handy features for processing model selection results and store them in the same loom file.
+The idea is simple: chunk the data into many small gene expression data matrices and run the analysis on a cluster system in parallel.
 
 ```{r eval=FALSE}
 prepare_job_array(loomfile = 'DC-like_cells.loom', num_chunks = 1000, outdir='.', dryrun = FALSE)
@@ -82,7 +101,7 @@ prepare_job_array(loomfile = 'DC-like_cells.loom', num_chunks = 1000, outdir='.'
 [prepare_job_array] Created input file: ./_chunk.01000
 [prepare_job_array] Generated bash script, ./run_subjobs.sh.pbs, for submitting array jobs. Modify the file if needed.
 ```
-This command generates .RData files that contains UMI count matrix for subset of genes and an accompanying meta-data in addition to two bash scripts `run_subjobs.sh.slurm` and `run_subjobs.sh.pbs`, one for slurm and the other for pbs/torque cluster system. These are scripts to submit a job array, for slurm for example,
+This command generates .RData files that contains UMI count matrix for subset of genes and accompanying meta-data in addition to two bash scripts `run_subjobs.sh.slurm` and `run_subjobs.sh.pbs`: one for slurm and the other for pbs/torque cluster system. These are scripts to submit a job array, for slurm for example,
 
 ```{bash eval=FALSE}
 #!/bin/bash
@@ -174,10 +193,10 @@ Adding: ModelCall_1SE
 model_call[['2SE']] <- perform_model_selection(fit_list=results, margin=2.0, loomfile='DC-like_cells.loom', attr_name='ModelCall_2SE', verbose=TRUE)
 ```
 ```
- 9003 Poisson genes
-  790 Negative Binomial genes
-   62 Zero-Inflated Poisson genes
-   12 Zero-Inflated Neg. Binomial genes
+ 9737 Poisson genes
+  124 Negative Binomial genes
+    6 Zero-Inflated Poisson genes
+    0 Zero-Inflated Neg. Binomial genes
  9867 Total
 Adding: ModelCall_1SE
 ```

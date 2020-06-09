@@ -15,10 +15,27 @@ knitr::opts_chunk$set(
   comment = "#"
 )
 ```
+## Pulling and running singularity container
+
+```
+$ singularity pull --name scRATE.sif shub://churchill-lab/scRATE
+$ singularity shell scRATE.sif
+Singularity scRATE.sif:~ > 
+```
+
+## Pulling and running docker container
+
+```
+$ docker pull kbchoi/scrate
+$ docker run -it kbchoi/scrate
+root@97aac3365f7e:/# 
+```
+
+In either case of using containerized `scRATE` packages, we need to launch `R` or execute an R script through `Rscript`.
 
 ## Installation
 
-Installation of scRATE is simple, although it may take a while as it has to compile rstan, the related packages, and all their dependencies.
+If we want to install `scRATE` by ourselves for our own R session, we can `install_github`. The installation process is simple, but it may take a while becasue it has to compile rstan, its sister packages, and all their dependencies.
 
 ```r
 > devtools::install_github('churchill-lab/scRATE')
@@ -36,6 +53,12 @@ This might hick up because of hdf5r or loomR. Then, try the following.
 ```r
 > install.packages('hdf5r')
 > devtools::install_github(repo = "mojaveazure/loomR", ref = "develop")
+```
+
+If `rstantools` causes `fatal error: 'tbb/task_scheduler_observer.h' file not found`, do the following.
+```r
+> remove.packages('rstantools')
+> devtools::install_version("rstantools", version = "2.0.0", repos = "http://cran.us.r-project.org")
 ```
 
 ## Quick Start

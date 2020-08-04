@@ -1,4 +1,4 @@
-#' Select models that best fits the gene data
+#' Bayesian model selection for scRNA-seq count data
 #'
 #' @export
 #' @param loo_results ELPD_loo for models
@@ -21,7 +21,7 @@ select_model <- function(loo_results, margin=2) {
   if (rownames(loo_results)[1] == 'P') {
     return(1)
   } else if (rownames(loo_results)[1] == 'NB') {
-    if (abs('P' %in% models && loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
+    if ('P' %in% models && abs(loo_results['P',][['elpd_diff']]) < margin * loo_results['P',][['se_diff']]) {
       return(1)
     } else {
       return(2)

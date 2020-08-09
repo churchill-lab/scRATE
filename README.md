@@ -153,4 +153,4 @@ P    -103.9      19.6
 
 ## How to cite
 
-K. Choi, Y. Chen, D.A. Skelly, G.A. Churchill. “Bayesian model selection reveals biological origins of zero inflation in single-cell transcriptomics.” bioRxiv. doi: <https://doi.org/10.1101/2020.03.03.974808> (2020)
+K. Choi, Y. Chen, D.A. Skelly, G.A. Churchill. “Bayesian model selection reveals biological origins of zero inflation in single-cell transcriptomics.” Genome Biology, 21, 183 (2020). <https://doi.org/10.1186/s13059-020-02103-2>

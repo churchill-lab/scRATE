@@ -5,8 +5,7 @@ From: ubuntu:16.04
     This container runs R.
 
 %labels
-    Maintainer Kwangbom "KB" Choi, Ph.D.
-    R_VERSION 3.6.2
+    Maintainer Kwangbom (KB) Choi, Ph.D.
 
 %apprun R
     exec R "${@}"
@@ -26,6 +25,7 @@ From: ubuntu:16.04
         software-properties-common \
         apt-transport-https \
         locales \
+        libv8-dev \
         libhdf5-serial-dev
     echo "LC_ALL=en_US.UTF-8" >> /etc/environment
     echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
@@ -37,20 +37,22 @@ From: ubuntu:16.04
     add-apt-repository -y "ppa:marutter/c2d4u3.5"
     apt-get update
     apt-get -y install --no-install-recommends --allow-unauthenticated\
-        r-base=${R_VERSION}* \
-        r-base-core=${R_VERSION}* \
-        r-base-dev=${R_VERSION}* \
-        r-recommended=${R_VERSION}* \
-        r-base-html=${R_VERSION}* \
-        r-doc-html=${R_VERSION}* \
+        r-base \
+        r-base-core \
+        r-base-dev \
+        r-recommended \
+        r-base-html \
+        r-doc-html \
         r-cran-devtools \
         r-cran-rcpp \
         r-cran-rcppparallel \
-        r-cran-bh \
-        r-cran-rstan
+        r-cran-bh
     apt-get clean
 
-    Rscript -e "devtools::install_version('rstantools', version = '2.0.0', repos = 'http://cran.us.r-project.org')"
+    mkdir -p $HOME/.R/
+    echo "CXX14FLAGS=-O3 -march=native -mtune=native -fPIC\n" >> $HOME/.R/Makevars
+
+    Rscript -e "install.packages('rstan')"
     Rscript -e "install.packages('rstanarm')"
     Rscript -e "install.packages('brms')"
     Rscript -e "install.packages('hdf5r')"

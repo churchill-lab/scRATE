@@ -22,7 +22,7 @@ Installation of scRATE is simple, although it may take a while as it has to comp
 ____ ____ ____ ____ ___ ____
 [__  |    |__/ |__|  |  |___
 ___] |___ |  \ |  |  |  |___
-                   Ver:0.1.1
+                   Ver:0.1.2
 ```
 
 This might hick up because of hdf5r or loomR. Then, try the following.
@@ -140,14 +140,14 @@ Then we compare the models with the leave-one-out cross validation test, and sel
 > elpd_loo
 ```
 ```
-       elpd_diff se_diff
-model4    0.0       0.0
-model2  -10.0       4.5
-model3  -34.9       9.2
-model1 -111.0      20.9
+     elpd_diff se_diff
+ZINB    0.0       0.0
+NB     -3.0       2.7
+ZIP   -35.6       9.5
+P    -103.9      19.6
 ```
 ```r
-> select_model(elpd_loo, margin=2)
+> select_model(elpd_loo, margin=1)
 [1] 4
 ```
 

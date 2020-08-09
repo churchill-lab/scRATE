@@ -32,7 +32,7 @@ From: ubuntu:16.04
     echo "LANG=en_US.UTF-8" > /etc/locale.conf
     locale-gen en_US.UTF-8
     echo 'deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/' >> /etc/apt/sources.list
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 51716619E084DAB9
     add-apt-repository -y "ppa:marutter/rrutter3.5"
     add-apt-repository -y "ppa:marutter/c2d4u3.5"
     apt-get update

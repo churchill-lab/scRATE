@@ -46,7 +46,7 @@ If we want to install `scRATE` by ourselves for our own R session, we can `insta
 ____ ____ ____ ____ ___ ____
 [__  |    |__/ |__|  |  |___
 ___] |___ |  \ |  |  |  |___
-                   Ver:0.1.1
+                   Ver:0.1.2
 ```
 
 This might hick up because of hdf5r or loomR. Then, try the following.

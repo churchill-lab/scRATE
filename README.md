@@ -22,7 +22,7 @@ Installation of scRATE is simple, although it may take a while as it has to comp
 ____ ____ ____ ____ ___ ____
 [__  |    |__/ |__|  |  |___
 ___] |___ |  \ |  |  |  |___
-                   Ver:0.1.1
+                   Ver:0.1.2
 ```
 
 This might hick up because of hdf5r or loomR. Then, try the following.
